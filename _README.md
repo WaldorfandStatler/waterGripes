@@ -1,12 +1,12 @@
-# Project Name
+# Water Gripe
 
-> Pithy project description
+> A web application that allows users to easily report water leaks in the jurisdiction of the New Orleans Serwerage and Water Board.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Josef Butts
+  - __Scrum Master__: Mark Stark
+  - __Development Team Members__: Josef Butts, Mark Stark
 
 ## Table of Contents
 

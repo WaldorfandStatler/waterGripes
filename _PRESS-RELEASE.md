@@ -1,4 +1,4 @@
-# Project Name #
+# Water Gripes #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,16 +17,15 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-
+  > Water Gripes
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Easily report water leaks to the New Orleans Sewerage and Water Board.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  >User friendly inteface to register water leaks withe the New Orleans Sewerage and Water Board. Our app will continously inform the board of outstanding issue registerd by our users, and, update the results on our site.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > This application streamlines the process of reporting water leaks to the Sewerage and Water Board.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
