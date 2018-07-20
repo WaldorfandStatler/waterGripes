@@ -25,19 +25,19 @@ Once the project moves into development, the press release can be used as a touc
   >User friendly inteface to register water leaks withe the New Orleans Sewerage and Water Board. Our app will continously inform the board of outstanding issue registerd by our users, and, update the results on our site.
 
 ## Problem ##
-  > This application streamlines the process of reporting water leaks to the Sewerage and Water Board.
+  > Reporting water leaks to the Severage and Water Board is time consuming and reports often go ignored if acknowledged at all.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > This application streamlines the process of reporting water leaks and repeatedly informs the board of unresolved issues.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  >"Water Gripes allows you to easily report leaks by using your smartphone or computer. Help make New Orleans a better city and use Water Gripes!"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Go to www.watergripes.com and sign up as a user to begin reporting and learn more.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  >"I used water gripes to report a leak on my block. Water Gripes sent messages to the water board until it was resolved. Thanks Water Gripes" -W. Stadler, Broadmoor New Orleans
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Visit WaterGripes.com so signup as a user and begin reporting water leaks today. 
