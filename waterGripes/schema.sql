@@ -33,7 +33,6 @@ CREATE TABLE gripes (
 --  *    mysql -u <USER> < schema.sql
 --  *    OR
 --  *    mysql -u <USER> -p < schema.sql
- 
 -- */
 
 
