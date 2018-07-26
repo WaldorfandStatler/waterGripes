@@ -33,7 +33,7 @@ CREATE TABLE gripes (
 -- /*  Execute this file from the command line by typing:
 --  *    mysql -u <USER> < schema.sql
 --  *    OR
---  *    mysql -u <USER> -p < schema.sql
+--  *    mysql -u <USER> -p < schema.sql///
 -- */
 
 INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy1", "buddy1@gmail.com", "70119", '12345'); 
