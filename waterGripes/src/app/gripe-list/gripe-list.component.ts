@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gripe } from '../gripe';
+import { GRIPES } from '../mock-gripes';
 
 @Component({
   selector: 'app-gripe-list',
@@ -7,23 +8,19 @@ import { Gripe } from '../gripe';
   styleUrls: ['./gripe-list.component.css']
 })
 export class GripeListComponent implements OnInit {
-  gripe: Gripe = {
-    id: 1,
-    block_number: 800,
-    street: 'St Charles',
-    crossStreet: 'Washington',
-    zipcode: 70115,
-    latitude: null,
-    longitude: null,
-    gripe: 'sewer leak',
-    comment: '',
-    votes: 5,
-    user_id: 1,
-    status: 'Unresolved'
-  }
-  constructor() { }
 
+  gripes = GRIPES;
+
+  selectedGripe : Gripe;
+
+  
+  constructor() { }
+  
   ngOnInit() {
+  }
+  
+  onSelect(gripe: Gripe): void {
+    this.selectedGripe = gripe;
   }
 
 }

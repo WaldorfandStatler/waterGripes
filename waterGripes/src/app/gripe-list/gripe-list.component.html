@@ -1,10 +1,21 @@
-<h2>💧Gripe💧</h2>
+
+<h2>💧Gripes💧</h2>
+<ul class="gripes">
+  <li *ngFor="let gripe of gripes"
+  [class.selected]="gripe === selectedGripe"
+  (click)="onSelect(gripe)">
+  <span class="badge">{{gripe.id}}</span> {{gripe.gripe}}
+</li>
+</ul>
+
+<div *ngIf="selectedGripe"></div>
+
 <div>
-  <span>id: </span>{{gripe.id}}</div>
+  <span>id: </span>{{selectedGripe.id}}</div>
 <div>
-  <span>Gripe: </span>{{gripe.gripe}}</div>
+  <span>Gripe: </span>{{selectedGripe.gripe}}</div>
 <div>
   <label>Gripe:
-    <input [(ngModel)]="gripe.gripe" placeholder="gripe">
+    <input [(ngModel)]="selectedGripe.gripe" placeholder="gripe">
   </label>
 </div>
