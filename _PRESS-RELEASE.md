@@ -22,7 +22,7 @@ Once the project moves into development, the press release can be used as a touc
   > Easily report water leaks to the New Orleans Sewerage and Water Board.
 
 ## Summary ##
-  >User friendly inteface to register water leaks withe the New Orleans Sewerage and Water Board. Our app will continously inform the board of outstanding issue registerd by our users, and, update the results on our site.
+  >User friendly interface to register water leaks withe the New Orleans Sewerage and Water Board. Our app will continuosly inform the board of outstanding issue registered by our users, and, update the results on our site.
 
 ## Problem ##
   > Reporting water leaks to the Severage and Water Board is time consuming and reports often go ignored if acknowledged at all.
@@ -37,7 +37,7 @@ Once the project moves into development, the press release can be used as a touc
   > Go to www.watergripes.com and sign up as a user to begin reporting and learn more.
 
 ## Customer Quote ##
-  >"I used water gripes to report a leak on my block. Water Gripes sent messages to the water board until it was resolved. Thanks Water Gripes" -W. Stadler, Broadmoor New Orleans
+  >"I used water gripes to report a leak on my block. Water Gripes sent messages to the water board until it was resolved. Thanks Water Gripes" -W. Smith, Broadmoor New Orleans
 
 ## Closing and Call to Action ##
-  > Visit WaterGripes.com so signup as a user and begin reporting water leaks today. 
+  > Visit WaterGripes.com so sign-up as a user and begin reporting water leaks today. 
