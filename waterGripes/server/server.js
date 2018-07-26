@@ -40,11 +40,11 @@ app.post('/gripes', (req, res)=>{
 })
 
 
-app.patch(`/gripes:phraseId`, (req, res) => {
-  console.log( 'patch server', req.headers.id, req.headers.vote);
-  const id = req.headers.id;
+app.patch(`/gripes/id`, (req, res) => {
+  console.log( 'patch server', req.headers.gripeId, req.headers.vote);
+  const gripeId = req.headers.GripeId;
   const status = req.headers.vote;
-  db.updateGripe(id, status);
+  db.updateGripe(gripeId, status);
     });
 
 
