@@ -95,6 +95,18 @@ app.post('/createUser', (req, res) => {
   res.send('user added to WaterGripes');
 });
 
+////get user for login
+app.post('/login/users/:userName', (req, res) => {
+  const user = req.body;
+  console.log(req.body);
+  // db.loginUser(user)
+  //   .then(cookie => {
+  //     console.log(`${user.userName} is logged in.`);
+  //     res.send(cookie);//what ever the seesion object is
+  //   })
+  //   .catch(err => console.error(err));
+  res.send('user logged in');
+});
 
 module.exports = app;
 //comments
