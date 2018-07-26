@@ -9,6 +9,7 @@ CREATE TABLE users (
   userName VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   zipcode INTEGER NOT NULL,
+  PASSWORD VARCHAR(20 NOT NULL),
   PRIMARY KEY (id)
 );
 
@@ -21,9 +22,8 @@ CREATE TABLE gripes (
   longitude DECIMAL(11,8),
   gripe VARCHAR(255) NOT NULL,
   comment VARCHAR(255) NOT NULL,
-  resolvedVotes INTEGER NOT NULL,
-  unresolvedVotes INTEGER NOT NULL,
-  FOREIGN KEY (id) REFERENCES users(id),
+  votes INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id),
   status ENUM('Resolved', 'Unresolved') NOT NULL
 );
 
@@ -33,20 +33,15 @@ CREATE TABLE gripes (
 --  *    mysql -u <USER> < schema.sql
 --  *    OR
 --  *    mysql -u <USER> -p < schema.sql
- 
-<<<<<<< HEAD
-INSERT into users ( userName, email, zipcode) VALUES ("Billy Bob", "jbutts@email.com", 70119);
-INSERT into users ( userName, email, zipcode) VALUES ("Sam Smith", "snarkydog@gmail.com", 70119);
-INSERT into users ( userName, email, zipcode) VALUES ("Fred Zimmerman", "thewildman@gmail.com", 70310);
-INSERT into users ( userName, email, zipcode) VALUES ("Dudley Doolittle", "thewildman@gmail.com", 70310);
-
--- INSERT into gripes ( block_number, street, zipcode, latitude, longitude, gripe, comment, resolvedVotes, unresolvedVotes, status) VALUES ("Billy Bob", "jbutts@email.com", 70119);
-
-
-
-
-=======
 -- */
->>>>>>> aed134ac83e85eae98d18fe2869dbc2c111d231d
 
+INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy1", "buddy1@gmail.com", "70119", '12345'); 
+INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy2", "buddy2@gmail.com", "70118", "12345"); 
+INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy", "buddy3@gmail.com", "70117", 'password'); 
 
+INSERT into gripes (block_number, street, zipcode, latitude, longitude, gripe, comment, resolvedVotes, unresolvedVotes, status) 
+  VALUES (200, "St. Charles", "70130", 30, 90. "water leaking from fire hydrant", "lots of water", 0, 0); 
+INSERT into gripes (block_number, street, zipcode, latitude, longitude, gripe, comment, resolvedVotes, unresolvedVotes, status) 
+  VALUES (201, "St. Charles", "70130", 30, 90. "water leaking from fire hydrant", "lots of water", 0, 0); 
+INSERT into gripes (block_number, street, zipcode, latitude, longitude, gripe, comment, resolvedVotes, unresolvedVotes, status) 
+  VALUES (202, "St. Charles", "70130", 30, 90. "water leaking from fire hydrant", "lots of water", 0, 0); 

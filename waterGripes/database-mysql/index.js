@@ -4,6 +4,7 @@ const connection = mysql.createConnection(mysqlConfig);
 
 
 connection.connect( (err)=>{
+  console.log('attempting to connect to database');
   if (err) { 
     console.error(err); 
     return;  
