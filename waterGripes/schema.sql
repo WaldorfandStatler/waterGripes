@@ -34,6 +34,19 @@ CREATE TABLE gripes (
 --  *    OR
 --  *    mysql -u <USER> -p < schema.sql
  
+<<<<<<< HEAD
+INSERT into users ( userName, email, zipcode) VALUES ("Billy Bob", "jbutts@email.com", 70119);
+INSERT into users ( userName, email, zipcode) VALUES ("Sam Smith", "snarkydog@gmail.com", 70119);
+INSERT into users ( userName, email, zipcode) VALUES ("Fred Zimmerman", "thewildman@gmail.com", 70310);
+INSERT into users ( userName, email, zipcode) VALUES ("Dudley Doolittle", "thewildman@gmail.com", 70310);
+
+-- INSERT into gripes ( block_number, street, zipcode, latitude, longitude, gripe, comment, resolvedVotes, unresolvedVotes, status) VALUES ("Billy Bob", "jbutts@email.com", 70119);
+
+
+
+
+=======
 -- */
+>>>>>>> aed134ac83e85eae98d18fe2869dbc2c111d231d
 
 

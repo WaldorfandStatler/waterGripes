@@ -4,7 +4,10 @@ const connection = mysql.createConnection(mysqlConfig);
 
 
 connection.connect( (err)=>{
-  if (err) {return reject(err); }
+  if (err) {
+    console.error(err);
+    return;
+  }
   console.log( "connected to database" );
 });
 
