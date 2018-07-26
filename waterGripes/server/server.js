@@ -40,7 +40,7 @@ app.post('/gripes', (req, res)=>{
 })
 
 
-app.patch(`/gripes/id`, (req, res) => {
+app.patch(`/gripes/:id`, (req, res) => {
   console.log( 'patch server', req.headers.gripeId, req.headers.vote);
   const gripeId = req.headers.GripeId;
   const status = req.headers.vote;
