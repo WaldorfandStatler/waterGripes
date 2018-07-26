@@ -18,7 +18,7 @@ app.use(express.static(path.resolve(__dirname, '../dist/waterGripes')));
 app.get('/gripes', (req, res) => {
   db.getAllGripes()
     .then((response) => {
-      console.log('get all gripes server response', response);
+      console.log('get all gripes server response');
       res.send(response);
     })
     .catch((err) => {
@@ -31,7 +31,7 @@ app.post('/gripes', (req, res)=>{
   const gripe = req.headers;
   db.submitGripe(gripe)
     .then((response) => {
-      console.log('submit gripes server response', response);
+      console.log('submit gripes server response');
       res.send(response);
     })
     .catch((err) => {
@@ -41,9 +41,9 @@ app.post('/gripes', (req, res)=>{
 
 
 app.patch(`/gripes:phraseId`, (req, res) => {
-  console.log( 'patch server', req.headers.id, req.headers.status);
+  console.log( 'patch server', req.headers.id, req.headers.vote);
   const id = req.headers.id;
-  const status = req.headers.status;
+  const status = req.headers.vote;
   db.updateGripe(id, status);
     });
 
