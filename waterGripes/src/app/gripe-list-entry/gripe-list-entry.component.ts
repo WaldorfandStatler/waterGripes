@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { Gripe } from '../gripe';
 
 @Component({
   selector: 'app-gripe-list-entry',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gripe-list-entry.component.css']
 })
 export class GripeListEntryComponent implements OnInit {
-
+  @Input() gripe: Gripe;
+  
   constructor() { }
 
   ngOnInit() {

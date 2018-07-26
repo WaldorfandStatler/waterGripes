@@ -1,3 +1,12 @@
-<p>
-  gripe-list-entry works!
-</p>
+<div *ngIf="gripe"></div>
+
+<div>
+  <span>id: </span>{{gripe.id}}</div>
+<div>
+  <span>Gripe: </span>{{gripe.gripe}}</div>
+<div>
+  <label>Gripe:
+    <input [(ngModel)]="gripe.gripe" placeholder="gripe">
+  </label>
+
+</div>

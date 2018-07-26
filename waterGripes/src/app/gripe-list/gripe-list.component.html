@@ -1,5 +1,6 @@
 
 <h2>💧Gripes💧</h2>
+
 <ul class="gripes">
   <li *ngFor="let gripe of gripes"
   [class.selected]="gripe === selectedGripe"
@@ -10,12 +11,4 @@
 
 <div *ngIf="selectedGripe"></div>
 
-<div>
-  <span>id: </span>{{selectedGripe.id}}</div>
-<div>
-  <span>Gripe: </span>{{selectedGripe.gripe}}</div>
-<div>
-  <label>Gripe:
-    <input [(ngModel)]="selectedGripe.gripe" placeholder="gripe">
-  </label>
-</div>
+<app-gripe-list-entry [gripe]="selectedGripe"></app-gripe-list-entry>
