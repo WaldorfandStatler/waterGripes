@@ -19,7 +19,7 @@ app.get('/gripes', (req, res) => {
 
   db.getAllGripes()
     .then((gripes) => {
-      console.log('got all gripes server response', gripes);
+      console.log('got all gripes server response');
       res.send(gripes);
     })
     .catch((err) => {
@@ -29,11 +29,11 @@ app.get('/gripes', (req, res) => {
 });
 
 app.get('/gripes/:id', (req, res) => {
-  const { id } = req.headers;
-  db.gripeById({ id })
-    .then((gripes) => {
-      console.log('got all gripes server response', gripes);
-      res.send(gripes);
+  const  id = req.headers.id;
+  db.gripeById(id)
+    .then((gripe) => {
+      console.log('got your gripe server response', gripe);
+      res.send(gripe);
     })
     .catch((err) => {
       console.error("error retrieving database data");
@@ -107,6 +107,15 @@ app.post('/createUser', (req, res) => {
   // res.send('user added to WaterGripes');
 });
 
+
+//ripped from passport docs
+//our auth should create a session and then bring the user back to gripe page??
+// app.post('/login',
+//   passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/login',
+//                                    failureFlash: true })
+// );
+
 ////get user for login
 app.post('/login/users/:userName', (req, res) => {
   const user = req.body;
@@ -119,6 +128,8 @@ app.post('/login/users/:userName', (req, res) => {
   //   .catch(err => console.error(err));
   res.send('user logged in');
 });
+
+
 
 module.exports = app;
 //comments
