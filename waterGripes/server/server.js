@@ -2,9 +2,8 @@ const express = require('express');
 const path = require('path');
 const { urlencoded, json } = require('body-parser')
 
-const db = require('../database-mysql/sequelize')
-// console.log(db);
-
+// const db = require('../database-mysql/index.js')
+const db = require('../database-mysql/helpers.js');
 const app = express();
 
 app.use(urlencoded({ extended: false }))
