@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class GripeService {
 
-  private gripesUrl = 'api/gripes';  // URL to web api
+  private gripesUrl = '/gripes';  // URL to web api
 
   constructor(
     private http: HttpClient,
