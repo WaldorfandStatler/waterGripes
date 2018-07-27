@@ -23,6 +23,7 @@ export class GripeListEntryComponent implements OnInit {
   ngOnInit(): void {
     this.getGripe();
   }
+
   getGripe(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.gripeService.getGripe(id)
@@ -32,5 +33,11 @@ export class GripeListEntryComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    this.gripeService.updateGripevote(this.gripe)
+      .subscribe(() => this.goBack());
+  }
+
 
 }

@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Gripe Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let gripe of gripes$ | async">
+      <a routerLink="/gripes/{{gripe.id}}">
+        {{gripe.name}}
+      </a>
+    </li>
+  </ul>
+</div>
