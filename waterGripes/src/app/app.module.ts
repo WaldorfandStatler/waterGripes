@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { AddGripeComponent } from './add-gripe/add-gripe.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { GripeSearchComponent } from './gripe-search/gripe-search.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
     LoginComponent,
     CreateUserComponent,
     AddGripeComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    GripeSearchComponent
   ],
   bootstrap: [AppComponent]
 })
