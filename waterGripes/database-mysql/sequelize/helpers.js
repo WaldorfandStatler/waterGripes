@@ -18,6 +18,7 @@ const createUser = (userInfo)=>{
   let email = userInfo.email;
   let password = userinfo.password;
 
+<<<<<<< HEAD
 //  force: true will drop the table if it already exists
   User.sync({force: true}).then(() => {
     // Table created
@@ -31,6 +32,8 @@ const createUser = (userInfo)=>{
 
 }
 
+=======
+>>>>>>> 8aae5bbe989bbe0b5d6f1bf06f16b08158ec8b2d
   
 
 
