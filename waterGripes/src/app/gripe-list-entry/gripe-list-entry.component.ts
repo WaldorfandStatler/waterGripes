@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Gripe } from '../gripe';
-import { GripeService } from '../../gripe.service';
+import { GripeService } from '../gripe.service';
 
 
 @Component({
@@ -34,9 +34,10 @@ export class GripeListEntryComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
-    this.gripeService.updateGripevote(this.gripe)
-      .subscribe(() => this.goBack());
+  vote(num): void {
+
+    this.gripeService.updateGripevote(this.gripe, num);
+      // .subscribe();
   }
 
 
