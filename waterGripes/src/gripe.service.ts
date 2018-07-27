@@ -16,4 +16,8 @@ export class GripeService {
   getGripes(): Observable<Gripe[]> {
     return of(GRIPES);
   }
+
+  getGripe(id: number): Observable<Gripe> {
+    return of(GRIPES.find(gripe => gripe.id === id));
+  }
 }
