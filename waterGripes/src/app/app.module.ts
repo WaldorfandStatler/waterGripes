@@ -11,6 +11,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { AddGripeComponent } from './add-gripe/add-gripe.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { GripeSearchComponent } from './gripe-search/gripe-search.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { GripeSearchComponent } from './gripe-search/gripe-search.component';
     CreateUserComponent,
     AddGripeComponent,
     UserHomeComponent,
-    GripeSearchComponent
+    GripeSearchComponent,
+    MessagesComponent
   ],
   bootstrap: [AppComponent]
 })
