@@ -28,6 +28,17 @@ app.get('/gripes', (req, res) => {
   
 });
 
+  //get gripes by id nu,ber
+  app.get('/gripeById/:id'), (req, res) => {
+    db.gripeById()
+    .then((gripe) => {
+      console.log('retrieved grip by id', gripe);
+      res.send(gripe);
+    })
+    .catch((err) => {
+      console.error("error retrieving database data");
+    });
+}
 //get get location might handle in browser
 // app.get('/getLocation', (req, res) => {
 
@@ -117,6 +128,8 @@ app.post('/login/users/:userName', (req, res) => {
   //   .catch(err => console.error(err));
   res.send('user logged in');
 });
+
+
 
 module.exports = app;
 //comments
