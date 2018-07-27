@@ -3,7 +3,7 @@
 <div>
   <span>id: </span>{{gripe.id}}</div>
 <div>
-  <span>Gripe: </span>{{gripe.gripe}}</div>
+  <span>Gripe: </span>{{gripe.gripe | uppercase}}</div>
 <div>
   <label>Gripe:
     <input [(ngModel)]="gripe.gripe" placeholder="gripe">
