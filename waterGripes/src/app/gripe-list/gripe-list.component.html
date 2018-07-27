@@ -1,0 +1,14 @@
+
+<h2>💧Gripes💧</h2>
+
+<ul class="gripes">
+  <li *ngFor="let gripe of gripes"
+  [class.selected]="gripe === selectedGripe"
+  (click)="onSelect(gripe)">
+  <span class="badge">{{gripe.id}}</span> {{gripe.gripe}}
+</li>
+</ul>
+
+<div *ngIf="selectedGripe"></div>
+
+<app-gripe-list-entry [gripe]="selectedGripe"></app-gripe-list-entry>
