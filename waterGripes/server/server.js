@@ -56,13 +56,13 @@ app.post('/gripes', (req, res)=>{
 app.patch(`/gripes/:id`, (req, res) => {
   const gripeVote = req.body;
   console.log('update vote', gripeVote);
-  // db.updateGripe(gripVote)
-  //   .then(response => {
-  //     console.log(response);
-  //     res.send('vote recorded');
-  //   })
-  //   .catch(err => console.error(err));
-  res.send('vote recorded');
+  db.updateGripe(gripeVote)
+    .then(response => {
+      console.log(response);
+      res.send('vote recorded');
+    })
+    .catch(err => console.error(err));
+  // res.send('vote recorded');
     });
 
 //get a google map for gripe

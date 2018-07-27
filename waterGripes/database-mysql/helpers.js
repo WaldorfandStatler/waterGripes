@@ -66,7 +66,22 @@ const submitGripe = (gripeInput)=>{
   });
 
 };
-const updateGripe = (id, gripeVote)=>{};
+const updateGripe = (gripeVote)=>{
+  let id = gripeVote.id;
+  let vote = gripeVote.gripeVote;
+
+let query = ` UPDATE  gripes SET votes = votes + '${vote}' WHERE id = '${id}'`;
+  return new Promise(function (resolve, reject) {
+    connection.query(query, function (err, result) {
+      // console.log('gripes retrieved', JSON.stringify(phrases));
+      if (err) {
+        return reject(err);
+      }
+      console.log("vote gripe successful");
+      return resolve(result);
+    });
+  });
+};
 
 const getGripeLocationById = (id) =>{};
 
@@ -102,6 +117,7 @@ const loginUser = (user) => {};
 module.exports = {
   getAllGripes: getAllGripes,
   createUser : createUser,
-  submitGripe : submitGripe
+  submitGripe : submitGripe,
+  updateGripe: updateGripe
 }
 
