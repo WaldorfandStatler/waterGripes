@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Gripe } from '../gripe';
-import { GripeService } from '../../gripe.service';
+import { GripeService } from '../gripe.service';
 
 
 @Component({

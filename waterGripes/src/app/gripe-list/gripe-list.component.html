@@ -1,10 +1,27 @@
 
-<h2>💧Gripes💧</h2>
+<h2>
+  💧Gripes💧
+  <button>
+    <a routerLink="/addGripe">Add gripe</a>
+  </button>
+</h2>
 
 <ul class="gripes">
   <li *ngFor="let gripe of gripes">
     <a routerLink="/gripes/{{gripe.id}}">
-      <span class="badge">{{gripe.id}}</span> {{gripe.gripe}}
-    </a>
+      <div>
+        <span class="badge">
+          {{gripe.zipcode}}
+        </span>
+        <span class="gripe">
+            {{gripe.gripe}}
+        </span>
+        <span class="status">
+          Status:
+          {{gripe.status}}
+        </span>
+
+        </div>
+      </a>
   </li>
 </ul>

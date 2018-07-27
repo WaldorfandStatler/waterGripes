@@ -7,7 +7,7 @@ import {
 } from 'rxjs/operators';
 
 import { Gripe } from '../gripe';
-import { GripeService } from '../../gripe.service';
+import { GripeService } from '../gripe.service';
 
 @Component({
   selector: 'app-gripe-search',

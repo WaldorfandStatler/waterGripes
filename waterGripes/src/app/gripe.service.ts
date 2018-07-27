@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Gripe } from './app/gripe';
-import { MessageService } from './app/message.service';
+import { Gripe } from './gripe';
+import { MessageService } from './message.service';
 
 
 const httpOptions = {
@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class GripeService {
 
-  private gripesUrl = 'api/gripes';  // URL to web api
+  private gripesUrl = '/gripes';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -79,10 +79,10 @@ export class GripeService {
   updateGripevote(gripe: Gripe, term: number): Observable<any> {
     console.log(gripe, term);
     //todo look into angular http patch req
-    // return this.http.patch(`${this.gripesUrl}/?votes=${term}`, gripe, httpOptions).pipe(
-    //   tap(_ => this.log(`updated gripe id=${gripe.id}`)),
-    //   catchError(this.handleError<any>('updateGripe'))
-    // );
+    return this.http.patch(`${this.gripesUrl}/?votes=${term}`, gripe, httpOptions).pipe(
+      tap(_ => this.log(`updated gripe id=${gripe.id}`)),
+      catchError(this.handleError<any>('updateGripe'))
+    );
   }
   /**
    * Handle Http operation that failed.

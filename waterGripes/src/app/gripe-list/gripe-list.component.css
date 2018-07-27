@@ -1,9 +1,10 @@
 /* GripeListComponent's private CSS styles */
+
 .gripes {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 26em;
 }
 .gripes li {
   position: relative;
@@ -22,10 +23,10 @@
 }
 
 .gripes a {
-  color: #888;
+  /* color: #888; */
   text-decoration: none;
   position: relative;
-  display: block;
+  /* display: block; */
   width: 250px;
 }
 
@@ -47,5 +48,22 @@
   min-width: 16px;
   text-align: right;
   margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.gripes .status {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #cc1610;
+  line-height: 1em;
+  position: relative;
+  right: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: left;
+  margin-left: .8em;
   border-radius: 4px 0 0 4px;
 }
