@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS watergripes;
-
+-- 
 CREATE DATABASE watergripes;
 
 USE watergripes;
