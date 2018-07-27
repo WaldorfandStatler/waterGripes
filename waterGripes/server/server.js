@@ -19,7 +19,7 @@ app.get('/gripes', (req, res) => {
 
   db.getAllGripes()
     .then((gripes) => {
-      console.log('got all gripes server response', gripes);
+      console.log('got all gripes server response');
       res.send(gripes);
     })
     .catch((err) => {
@@ -28,17 +28,17 @@ app.get('/gripes', (req, res) => {
   
 });
 
-  //get gripes by id nu,ber
-  app.get('/gripeById/:id'), (req, res) => {
-    db.gripeById()
+app.get('/gripes/:id', (req, res) => {
+  const  id = req.headers.id;
+  db.gripeById(id)
     .then((gripe) => {
-      console.log('retrieved grip by id', gripe);
+      console.log('got your gripe server response', gripe);
       res.send(gripe);
     })
     .catch((err) => {
       console.error("error retrieving database data");
     });
-}
+});
 //get get location might handle in browser
 // app.get('/getLocation', (req, res) => {
 
