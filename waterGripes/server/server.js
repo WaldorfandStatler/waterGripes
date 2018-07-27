@@ -28,6 +28,17 @@ app.get('/gripes', (req, res) => {
   
 });
 
+  //get gripes by id nu,ber
+  app.get('/gripeById/:id'), (req, res) => {
+    db.gripeById()
+    .then((gripe) => {
+      console.log('retrieved grip by id', gripe);
+      res.send(gripe);
+    })
+    .catch((err) => {
+      console.error("error retrieving database data");
+    });
+}
 //get get location might handle in browser
 // app.get('/getLocation', (req, res) => {
 
@@ -96,6 +107,15 @@ app.post('/createUser', (req, res) => {
   // res.send('user added to WaterGripes');
 });
 
+
+//ripped from passport docs
+//our auth should create a session and then bring the user back to gripe page??
+// app.post('/login',
+//   passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/login',
+//                                    failureFlash: true })
+// );
+
 ////get user for login
 app.post('/login/users/:userName', (req, res) => {
   const user = req.body;
@@ -108,6 +128,8 @@ app.post('/login/users/:userName', (req, res) => {
   //   .catch(err => console.error(err));
   res.send('user logged in');
 });
+
+
 
 module.exports = app;
 //comments
