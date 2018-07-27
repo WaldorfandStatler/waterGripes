@@ -10,7 +10,8 @@ CREATE TABLE users (
   email VARCHAR(100) NOT NULL,
   zipcode INTEGER NOT NULL,
   PASSWORD VARCHAR(20) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE KEY unique_email (email)
 );
 
 CREATE TABLE gripes (
