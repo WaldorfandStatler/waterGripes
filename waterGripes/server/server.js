@@ -41,14 +41,14 @@ app.get('/gripes', (req, res) => {
 app.post('/gripes', (req, res)=>{
   const gripe = req.body;
   console.log('post gripe', gripe);
-  // db.submitGripe(gripe)
-  //   .then((response) => {
-  //     console.log(response);
-  //     res.send('Gripe added to DB');
-  //   })
-  //   .catch((err) => {
-  //     console.error("error posting gripe", err);
-  //   });
+  db.submitGripe(gripe)
+    .then((response) => {
+      console.log(response);
+      res.send('Gripe added to DB');
+    })
+    .catch((err) => {
+      console.error("error posting gripe", err);
+    });
   res.send('Gripe added to DB');
 })
 
@@ -85,13 +85,13 @@ app.get('/gripe/:id/map', (req, res) => {
 ///user endpoints//////////
 app.post('/createUser', (req, res) => {
   const user = req.body;
-  console.log(user);
-  // db.createUser(user)
-  //   .then(user => {
-  //     console.log(user, 'added to system');
-  //     res.send(`${user.userName} welcomed to WaterGripes`);
-  //   })
-  //   .catch(err => console.error(err));
+  console.log('create user: ', user);
+  db.createUser(user)
+    .then(user => {
+      console.log(user, 'added to system');
+      res.send(`${user.userName} welcomed to WaterGripes`);
+    })
+    .catch(err => console.error(err));
   res.send('user added to WaterGripes');
 });
 

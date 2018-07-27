@@ -46,5 +46,5 @@ INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longit
   VALUES ( 200, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
   VALUES ( 201, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
-INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, resolvedVotes,  status) 
+INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
   VALUES ( 202, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 

@@ -39,23 +39,61 @@ getAllGripes();
 
 const getLocationData = (id)=>{};
 
-const submitGripe = (gripe)=>{
+const submitGripe = (gripeInput)=>{
+  let blockNumber = gripeInput.blockNumber;
+  let street = gripeInput.street;
+  let crossStreet = gripeInput.crossStreet;
+  let zipcode = gripeInput.crossStreet;
+  let latitude = gripeInput.latitude;
+  let longitude = gripeInput.longitude;
+  let gripe = gripeInput.gripe;
+  let comment = gripeInput.comment;
+  let votes = gripeInput.votes;
+  let status = gripeInput.status;
+  //the query string;
+  let query = `INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
+  VALUES ( ${blockNumber}, ${street}, ${crossStreet}, ${zipcode}, ${latitude}, ${longitude}, ${gripe}, ${comment}, ${votes}, ${status}); `
+
+  return new Promise(function (resolve, reject) {
+    connection.query(query, function (err, result) {
+      // console.log('gripes retrieved', JSON.stringify(phrases));
+      if (err) {
+        return reject(err);
+      }
+      console.log("submit gripe successful");
+      return resolve(result);
+    });
+  });
 
 };
-
 const updateGripe = (id, gripeVote)=>{};
 
 const getGripeLocationById = (id) =>{};
 
+
+//TODO: needs to be tested
 const createUser = (userInfo)=>{
-  let name = userInfo.name;
+  // console.log(user);
+  // let userInfo = user.headers;
+  let userName = userInfo.userName;
   let zipcode = userInfo.zipcode;
   let email = userInfo.email;
-  let password = userinfo.password;
+  let password = userInfo.password;
+//INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy", "buddy3@gmail.com", "70117", 'password'); 
 
-  
+  let query = `INSERT into users (userName, email, zipcode, PASSWORD) VALUES ( ${userName}, ${email}, ${zipcode}, ${password})`; 
 
-}
+  return new Promise(function (resolve, reject) {
+    connection.query(query, function (err, result) {
+      // console.log('gripes retrieved', JSON.stringify(phrases));
+      if (err) {
+        return reject(err);
+      }
+      console.log("create user successful");
+      return resolve(result);
+    });
+  });
+};
 
 
 const loginUser = (user) => {};
@@ -63,6 +101,8 @@ const loginUser = (user) => {};
 
  
 module.exports = {
-  getAllGripes: getAllGripes
+  getAllGripes: getAllGripes,
+  createUser : createUser,
+  submitGripe : submitGripe
 }
 
