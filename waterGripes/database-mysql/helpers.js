@@ -73,16 +73,17 @@ const getGripeLocationById = (id) =>{};
 
 //TODO: needs to be tested
 const createUser = (userInfo)=>{
-  // console.log(user);
+  console.log("trying to get username here", userInfo.username);
   // let userInfo = user.headers;
-  let userName = userInfo.userName;
+  let username = userInfo.username;
   let zipcode = userInfo.zipcode;
   let email = userInfo.email;
-  let password = userInfo.password;
+  let password = userInfo.PASSWORD;
 //INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy", "buddy3@gmail.com", "70117", 'password'); 
 
-  let query = `INSERT into users (userName, email, zipcode, PASSWORD) VALUES ( ${userName}, ${email}, ${zipcode}, ${password})`; 
-
+  let query = `INSERT into users (username, email, zipcode, PASSWORD) VALUES ( '${username}', '${email}', '${zipcode}', '${password}')`; 
+//  let query = `INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy1", "buddy1@gmail.com", "70119", '12345'); 
+//  `;
   return new Promise(function (resolve, reject) {
     connection.query(query, function (err, result) {
       // console.log('gripes retrieved', JSON.stringify(phrases));
@@ -97,8 +98,6 @@ const createUser = (userInfo)=>{
 
 
 const loginUser = (user) => {};
-
-
  
 module.exports = {
   getAllGripes: getAllGripes,

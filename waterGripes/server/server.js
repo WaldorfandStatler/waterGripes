@@ -88,11 +88,11 @@ app.post('/createUser', (req, res) => {
   console.log('create user: ', user);
   db.createUser(user)
     .then(user => {
-      console.log(user, 'added to system');
-      res.send(`${user.userName} welcomed to WaterGripes`);
+      // console.log(user, 'added to system');
+      res.send(`${user.username} welcomed to WaterGripes`);
     })
     .catch(err => console.error(err));
-  res.send('user added to WaterGripes');
+  // res.send('user added to WaterGripes');
 });
 
 ////get user for login

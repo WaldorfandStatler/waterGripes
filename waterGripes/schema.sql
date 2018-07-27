@@ -25,7 +25,7 @@ CREATE TABLE gripes (
   comment VARCHAR(255) NOT NULL,
   votes INTEGER NOT NULL,
   -- userId INTEGER NOT NULL,
-  FOREIGN KEY (userId) integer users(id),
+  -- FOREIGN KEY (userId) integer users(id),
   status ENUM('Resolved', 'Unresolved') NOT NULL
   
 );
