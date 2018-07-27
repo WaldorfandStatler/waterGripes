@@ -1,12 +1,14 @@
-<div *ngIf="gripe"></div>
-
-<div>
-  <span>id: </span>{{gripe.id}}</div>
-<div>
-  <span>Gripe: </span>{{gripe.gripe | uppercase}}</div>
-<div>
-  <label>Gripe:
-    <input [(ngModel)]="gripe.gripe" placeholder="gripe">
-  </label>
-
+<div *ngIf="gripe">
+  <div>
+    <span>id: </span>{{gripe.id}}
+  </div>
+  <div>
+  <span>Gripe: </span>{{gripe.gripe | uppercase}}
+  </div>
+  <div>
+    <label>Gripe:
+      <input [(ngModel)]="gripe.gripe" placeholder="gripe">
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
 </div>
