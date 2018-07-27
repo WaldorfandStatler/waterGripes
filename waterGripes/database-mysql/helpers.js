@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 
-
-
 const getAllGripes = ()=>{};
 
 const getLocationData = (id)=>{};
