@@ -1,14 +1,21 @@
 <div *ngIf="gripe">
+
+
+  <h3>Gripe Status: {{gripe.status}}</h3>
   <div>
-    <span>id: </span>{{gripe.id}}
+    {{gripe.gripe | uppercase}}
   </div>
   <div>
-  <span>Gripe: </span>{{gripe.gripe | uppercase}}
+    On the {{gripe.block_number}} block of {{gripe.street}}
   </div>
-  <!-- <div>
-    <label>Gripe:
-      <input [(ngModel)]="gripe.gripe" placeholder="gripe">
-    </label>
-  </div> -->
-  <button (click)="goBack()">go back</button>
+  <div>
+    New Orleans, LA {{gripe.zipcode}}
+  </div>
+  <div>
+  <div>Map goes here</div>
+
+  </div>
+  Vote: <span><button (click)="vote(1)">Resolved</button></span><button (click)="vote(-1)">UnResolved</button>
+  
 </div>
+<button (click)="goBack()">go back</button>
