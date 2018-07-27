@@ -9,22 +9,23 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { AddGripeComponent } from './add-gripe/add-gripe.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+  ],
   declarations: [
     AppComponent,
     GripeListComponent,
     GripeListEntryComponent,
     LoginComponent,
     CreateUserComponent,
-    AddGripeComponent
+    AddGripeComponent,
+    UserHomeComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-  ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
