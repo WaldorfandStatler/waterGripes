@@ -28,6 +28,17 @@ app.get('/gripes', (req, res) => {
   
 });
 
+app.get('/gripes/:id', (req, res) => {
+  const { id } = req.headers;
+  db.gripeById({ id })
+    .then((gripes) => {
+      console.log('got all gripes server response', gripes);
+      res.send(gripes);
+    })
+    .catch((err) => {
+      console.error("error retrieving database data");
+    });
+});
 //get get location might handle in browser
 // app.get('/getLocation', (req, res) => {
 
