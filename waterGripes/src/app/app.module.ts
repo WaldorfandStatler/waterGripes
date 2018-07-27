@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GripeListComponent } from './gripe-list/gripe-list.component';
 import { GripeListEntryComponent } from './gripe-list-entry/gripe-list-entry.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { GripeListEntryComponent } from './gripe-list-entry/gripe-list-entry.com
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
