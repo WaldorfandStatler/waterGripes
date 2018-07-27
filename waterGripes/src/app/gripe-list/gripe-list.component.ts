@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Gripe } from '../gripe';
-import { GRIPES } from '../mock-gripes';
+import { GripeService } from '../../gripe.service';
 
 @Component({
   selector: 'app-gripe-list',
@@ -9,18 +10,25 @@ import { GRIPES } from '../mock-gripes';
 })
 export class GripeListComponent implements OnInit {
 
-  gripes = GRIPES;
-
   selectedGripe : Gripe;
 
+  gripes: Gripe[];
+
+
   
-  constructor() { }
+  constructor(private gripeService: GripeService) { }
   
   ngOnInit() {
+    this.getGripes();
   }
   
   onSelect(gripe: Gripe): void {
     this.selectedGripe = gripe;
+  }
+
+  getGripes(): void {
+    this.gripeService.getGripes()
+      .subscribe(gripes => this.gripes = gripes);
   }
 
 }
