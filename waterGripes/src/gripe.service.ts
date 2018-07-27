@@ -76,11 +76,13 @@ export class GripeService {
     );
   }
   /** PUT: update the gripe on the server */
-  updateGripevote(gripe: Gripe): Observable<any> {
-    return this.http.put(this.gripesUrl, gripe, httpOptions).pipe(
-      tap(_ => this.log(`updated gripe id=${gripe.id}`)),
-      catchError(this.handleError<any>('updateGripe'))
-    );
+  updateGripevote(gripe: Gripe, term: number): Observable<any> {
+    console.log(gripe, term);
+    //todo look into angular http patch req
+    // return this.http.patch(`${this.gripesUrl}/?votes=${term}`, gripe, httpOptions).pipe(
+    //   tap(_ => this.log(`updated gripe id=${gripe.id}`)),
+    //   catchError(this.handleError<any>('updateGripe'))
+    // );
   }
   /**
    * Handle Http operation that failed.
