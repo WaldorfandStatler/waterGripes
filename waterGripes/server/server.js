@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const { urlencoded, json } = require('body-parser')
 
-const db = require('../database-mysql/sequelize')
+const db = require('../database-mysql/index.js')
 // console.log(db);
+//
 
 const app = express();
 
