@@ -1,5 +1,10 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Gripe } from '../gripe';
+import { GripeService } from '../../gripe.service';
+
 
 @Component({
   selector: 'app-gripe-list-entry',
@@ -9,9 +14,23 @@ import { Gripe } from '../gripe';
 export class GripeListEntryComponent implements OnInit {
   @Input() gripe: Gripe;
   
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private gripeService: GripeService,
+    private location: Location
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getGripe();
+  }
+  getGripe(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.gripeService.getGripe(id)
+      .subscribe(gripe => this.gripe = gripe);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

@@ -1,2 +1,8 @@
-  <h1> Welcome to 💧 {{ title }} 💧</h1>
-  <app-gripe-list></app-gripe-list>
+  <h1>💧 {{ title }} 💧</h1>
+  <h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/gripesList">Gripes</a>
+    <a routerLink="/createUser">Sign Up 2 Gripe</a>
+    <a routerLink="/login">Login and Gripe</a>
+  </nav>
+  <router-outlet></router-outlet>

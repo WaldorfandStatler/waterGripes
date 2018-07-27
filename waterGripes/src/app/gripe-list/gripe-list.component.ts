@@ -10,11 +10,7 @@ import { GripeService } from '../../gripe.service';
 })
 export class GripeListComponent implements OnInit {
 
-  selectedGripe : Gripe;
-
   gripes: Gripe[];
-
-
   
   constructor(private gripeService: GripeService) { }
   
@@ -22,10 +18,6 @@ export class GripeListComponent implements OnInit {
     this.getGripes();
   }
   
-  onSelect(gripe: Gripe): void {
-    this.selectedGripe = gripe;
-  }
-
   getGripes(): void {
     this.gripeService.getGripes()
       .subscribe(gripes => this.gripes = gripes);

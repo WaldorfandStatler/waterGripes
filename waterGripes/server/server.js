@@ -2,9 +2,8 @@ const express = require('express');
 const path = require('path');
 const { urlencoded, json } = require('body-parser')
 
-const db = require('../database-mysql/sequelize')
-// console.log(db);
-
+// const db = require('../database-mysql/index.js')
+const db = require('../database-mysql/helpers.js');
 const app = express();
 
 app.use(urlencoded({ extended: false }))
@@ -17,15 +16,16 @@ app.use(express.static(path.resolve(__dirname, '../dist/waterGripes')));
 
 //endpoint to retrive all existing gripes
 app.get('/gripes', (req, res) => {
-  // db.getAllGripes()
-  //   .then((gripes) => {
-  //     console.log('got all gripes server response', gripes);
-  //     res.send(response, 'here are the Gripes');
-  //   })
-  //   .catch((err) => {
-  //     console.error("error retrieving database data");
-  //   });
-  res.send('here are the Gripes');
+
+  db.getAllGripes()
+    .then((gripes) => {
+      console.log('got all gripes server response', gripes);
+      res.send(gripes);
+    })
+    .catch((err) => {
+      console.error("error retrieving database data");
+    });
+  
 });
 
 //get get location might handle in browser
@@ -41,14 +41,14 @@ app.get('/gripes', (req, res) => {
 app.post('/gripes', (req, res)=>{
   const gripe = req.body;
   console.log('post gripe', gripe);
-  // db.submitGripe(gripe)
-  //   .then((response) => {
-  //     console.log(response);
-  //     res.send('Gripe added to DB');
-  //   })
-  //   .catch((err) => {
-  //     console.error("error posting gripe", err);
-  //   });
+  db.submitGripe(gripe)
+    .then((response) => {
+      console.log(response);
+      res.send('Gripe added to DB');
+    })
+    .catch((err) => {
+      console.error("error posting gripe", err);
+    });
   res.send('Gripe added to DB');
 })
 
@@ -85,14 +85,14 @@ app.get('/gripe/:id/map', (req, res) => {
 ///user endpoints//////////
 app.post('/createUser', (req, res) => {
   const user = req.body;
-  console.log(user);
-  // db.createUser(user)
-  //   .then(user => {
-  //     console.log(user, 'added to system');
-  //     res.send(`${user.userName} welcomed to WaterGripes`);
-  //   })
-  //   .catch(err => console.error(err));
-  res.send('user added to WaterGripes');
+  console.log('create user: ', user);
+  db.createUser(user)
+    .then(user => {
+      // console.log(user, 'added to system');
+      res.send(`${user.username} welcomed to WaterGripes`);
+    })
+    .catch(err => console.error(err));
+  // res.send('user added to WaterGripes');
 });
 
 ////get user for login
