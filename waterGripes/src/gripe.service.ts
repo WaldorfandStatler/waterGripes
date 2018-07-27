@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Gripe } from './app/gripe';
+import { MessageService } from './app/message.service';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,7 +19,9 @@ export class GripeService {
 
   private gripesUrl = 'api/gripes';  // URL to web api
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
 
   getGripes(): Observable<Gripe[]> {
     return this.http.get<Gripe[]>(this.gripesUrl)
@@ -66,7 +70,7 @@ export class GripeService {
 
   /** POST: add a new gripe to the server */
   addGripe(gripe: Gripe): Observable<Gripe> {
-    return this.http.post<Gripe>(this.gripeesUrl, gripe, httpOptions).pipe(
+    return this.http.post<Gripe>(this.gripesUrl, gripe, httpOptions).pipe(
       tap((gripe: Gripe) => this.log(`added gripe w/ id=${gripe.id}`)),
       catchError(this.handleError<Gripe>('addGripe'))
     );
