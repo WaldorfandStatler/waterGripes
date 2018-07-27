@@ -33,8 +33,22 @@ const getAllGripes = ()=>{
     });
   });
 };
-// getAllGripes();
 
+const gripeById = (id) => {
+  console.log('gripe by id fired');
+  const query = `SELECT * FROM gripes WHERE id = '${id}'`;
+  return new Promise(function (resolve, reject) {
+    connection.query(query, function (err, gripe) {
+      // console.log('gripes retrieved', JSON.stringify(phrases));
+      if (err) {
+        return reject(err);
+      }
+      console.log("gripe retrieved from database", gripe);
+      return resolve(gripe);
+    });
+  });
+}
+// console.log(gripeById(2));
 
 
 const getLocationData = (id)=>{};
@@ -137,6 +151,7 @@ module.exports = {
   createUser : createUser,
   submitGripe : submitGripe,
   updateGripe: updateGripe,
-  getGripeLocationById: getGripeLocationById
+  getGripeLocationById: getGripeLocationById,
+  gripeById: gripeById
 }
 
