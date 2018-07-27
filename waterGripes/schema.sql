@@ -25,7 +25,11 @@ CREATE TABLE gripes (
   comment VARCHAR(255) NOT NULL,
   votes INTEGER NOT NULL,
   -- userId INTEGER NOT NULL,
+<<<<<<< HEAD
   -- FOREIGN KEY (userId) integer users(id),
+=======
+  FOREIGN KEY (userId) integer users(id),
+>>>>>>> c9ed33a2ad065dbe8a480e8791562d3cb6c61937
   status ENUM('Resolved', 'Unresolved') NOT NULL
   
 );
@@ -46,5 +50,9 @@ INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longit
   VALUES ( 200, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
   VALUES ( 201, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
+<<<<<<< HEAD
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
+=======
+INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, resolvedVotes,  status) 
+>>>>>>> c9ed33a2ad065dbe8a480e8791562d3cb6c61937
   VALUES ( 202, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 

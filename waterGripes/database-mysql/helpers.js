@@ -39,6 +39,7 @@ getAllGripes();
 
 const getLocationData = (id)=>{};
 
+<<<<<<< HEAD
 const submitGripe = (gripeInput)=>{
   let blockNumber = gripeInput.blockNumber;
   let street = gripeInput.street;
@@ -66,10 +67,17 @@ const submitGripe = (gripeInput)=>{
   });
 
 };
+=======
+const submitGripe = (gripe)=>{
+
+};
+
+>>>>>>> c9ed33a2ad065dbe8a480e8791562d3cb6c61937
 const updateGripe = (id, gripeVote)=>{};
 
 const getGripeLocationById = (id) =>{};
 
+<<<<<<< HEAD
 
 //TODO: needs to be tested
 const createUser = (userInfo)=>{
@@ -103,5 +111,24 @@ module.exports = {
   getAllGripes: getAllGripes,
   createUser : createUser,
   submitGripe : submitGripe
+=======
+const createUser = (userInfo)=>{
+  let name = userInfo.name;
+  let zipcode = userInfo.zipcode;
+  let email = userInfo.email;
+  let password = userinfo.password;
+
+  
+
+}
+
+
+const loginUser = (user) => {};
+
+
+ 
+module.exports = {
+  getAllGripes: getAllGripes
+>>>>>>> c9ed33a2ad065dbe8a480e8791562d3cb6c61937
 }
 
