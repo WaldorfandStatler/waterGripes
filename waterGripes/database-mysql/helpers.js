@@ -39,7 +39,9 @@ getAllGripes();
 
 const getLocationData = (id)=>{};
 
-const submitGripe = (gripe)=>{};
+const submitGripe = (gripe)=>{
+
+};
 
 const updateGripe = (id, gripeVote)=>{};
 
@@ -50,6 +52,8 @@ const createUser = (userInfo)=>{
   let zipcode = userInfo.zipcode;
   let email = userInfo.email;
   let password = userinfo.password;
+
+  
 
 }
 

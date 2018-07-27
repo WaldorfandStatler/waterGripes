@@ -16,15 +16,16 @@ app.use(express.static(path.resolve(__dirname, '../dist/waterGripes')));
 
 //endpoint to retrive all existing gripes
 app.get('/gripes', (req, res) => {
-  // db.getAllGripes()
-  //   .then((gripes) => {
-  //     console.log('got all gripes server response', gripes);
-  //     res.send(response, 'here are the Gripes');
-  //   })
-  //   .catch((err) => {
-  //     console.error("error retrieving database data");
-  //   });
-  res.send('here are the Gripes');
+
+  db.getAllGripes()
+    .then((gripes) => {
+      console.log('got all gripes server response', gripes);
+      res.send(gripes);
+    })
+    .catch((err) => {
+      console.error("error retrieving database data");
+    });
+  // res.send('here are the Gripes');
 });
 
 //get get location might handle in browser
