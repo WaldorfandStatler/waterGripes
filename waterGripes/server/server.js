@@ -25,7 +25,7 @@ app.get('/gripes', (req, res) => {
     .catch((err) => {
       console.error("error retrieving database data");
     });
-  // res.send('here are the Gripes');
+  
 });
 
 //get get location might handle in browser
