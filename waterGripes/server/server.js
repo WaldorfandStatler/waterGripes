@@ -37,6 +37,7 @@ app.get('/gripes', (req, res) => {
 //   // console.log(req.connection.remoteAddress.slice(7));
 //   res.send('getting location');
 // })
+
 //add a gripe to db.
 app.post('/gripes', (req, res)=>{
   const gripe = req.body;
@@ -67,9 +68,9 @@ app.patch(`/gripes/:id`, (req, res) => {
 
 //get a google map for gripe
 app.get('/gripe/:id/map', (req, res) => {
-  const gripeId = req.headers.id;
-  console.log(gripeId);
-  //write db get gripe by id func
+  // const gripeId = req.headers.id;
+  // console.log(gripeId);
+  // write db get gripe by id func
   // db.getGripeLocationbyId(gripeId)
   //   .then(gripe => {
   //     console.log(gripe);
@@ -79,7 +80,7 @@ app.get('/gripe/:id/map', (req, res) => {
   //     res.send(map)
   //   })
   //   .catch(err => console.error(err));
-  res.send('getting map')
+  // res.send('getting map')
 });
 
 ///user endpoints//////////
