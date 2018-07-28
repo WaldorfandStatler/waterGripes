@@ -59,11 +59,11 @@
   background-color: #cc1610;
   line-height: 1em;
   position: relative;
-  right: -1px;
+  /* left: -1px; */
   top: -4px;
   height: 1.8em;
   min-width: 16px;
   text-align: left;
-  margin-left: .8em;
-  border-radius: 4px 0 0 4px;
+  margin-left: 1em;
+  border-radius: 0 4px 4px 0;
 }
