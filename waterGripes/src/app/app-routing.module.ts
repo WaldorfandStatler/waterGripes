@@ -10,11 +10,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: '/userHome', pathMatch: 'full' },
   { path: 'addGripe', component: AddGripeComponent },
   // { path: 'createUser', component: CreateUserComponent },
   { path: 'gripesList', component: GripeListComponent },
-  { path: 'gripes/:id', component: GripeListEntryComponent },
+  { path: 'gripe/:id', component: GripeListEntryComponent },
   { path: 'login', component: LoginComponent },
   { path: 'userHome', component: UserHomeComponent },
 ];
