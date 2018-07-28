@@ -7,7 +7,7 @@ USE watergripes;
 CREATE TABLE users (
   id INTEGER (0)  AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
   zipcode INTEGER NOT NULL,
   PASSWORD VARCHAR(20) NOT NULL,
   PRIMARY KEY (id),
@@ -41,11 +41,11 @@ CREATE TABLE gripes (
 
 INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy1", "buddy1@gmail.com", "70119", '12345'); 
 INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy2", "buddy2@gmail.com", "70118", "12345"); 
-INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy", "buddy3@gmail.com", "70117", 'password'); 
+INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy3", "buddy3@gmail.com", "70117", 'password'); 
 
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes, status) 
-  VALUES ( 200, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
+  VALUES ( 200, "St. Charles", "3rd", "70130", 30, 90, "Geyser in the drain", "help me", 0, 'Unresolved'); 
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
-  VALUES ( 201, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
+  VALUES ( 657, "St. Ann", "broad", "70119", 30, 90, "Flooded street due to dinosaur attacking pipe", "lots of water", 0, 'Unresolved'); 
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
-  VALUES ( 202, "St. Charles", "3rd", "70130", 30, 90, "water leaking from fire hydrant", "lots of water", 0, 'Unresolved'); 
+  VALUES ( 709, "Annuciation", "Washington", "12345", 30, 90, "Water water everywhere but not a drop", "We killed an Albatross", 0, 'Unresolved'); 
