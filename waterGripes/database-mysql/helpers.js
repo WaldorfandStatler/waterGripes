@@ -28,7 +28,6 @@ const gripeById = (id) => {
   });
 }
 
-
 const getLocationData = (id)=>{};
 
 const submitGripe = (gripeInput)=>{

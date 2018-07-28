@@ -1,8 +1,7 @@
   <h1>💧 {{ title }} 💧</h1>
-  <h1>{{title}}</h1>
-  <nav>
-    <a routerLink="/gripesList">Gripes</a>
-    <a routerLink="/createUser">Sign Up 2 Gripe</a>
-    <a routerLink="/login">Login and Gripe</a>
-  </nav>
-  <router-outlet></router-outlet>
+  <div *ngIf="!user">//need to reverse once auth works
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="user">
+    <app-login></app-login>
+  </div>

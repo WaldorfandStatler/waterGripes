@@ -1,3 +1,29 @@
-<p>
-  user-home works!
-</p>
+<h2>
+  💧Gripes💧
+  <button>
+    <a routerLink="/addGripe">Add gripe</a>
+  </button>
+</h2>
+
+<ul class="gripes">
+  <li *ngFor="let gripe of gripes">
+  <!-- [class.selected]="gripe === selectedGripe" 
+    (click)="onSelect(gripe)"
+    > -->
+    <a routerLink="/gripe/{{gripe.id}}">
+      <div>
+        <span class="badge">
+          {{gripe.zipcode}}
+        </span>
+        <span class="gripe">
+          {{gripe.gripe}}
+        </span>
+        <span class="status">
+          Status: {{gripe.status}}
+        </span>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<!-- <app-gripe-list-entry [gripe]="selectedGripe"></app-gripe-list-entry> -->
