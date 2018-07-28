@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const { urlencoded, json } = require('body-parser')
 
-// const db = require('../database-mysql/index.js')
 const db = require('../database-mysql/helpers.js');
 const app = express();
 
@@ -79,10 +78,10 @@ app.patch(`/gripes/:id`, (req, res) => {
 
 //get a google map for gripe
 app.get('/gripe/:id/map', (req, res) => {
-  // const gripeId = req.headers.id;
+  // const gripeId = req.params.id;
   // console.log(gripeId);
-  // write db get gripe by id func
-  // db.getGripeLocationbyId(gripeId)
+  
+  // db.gripeById(gripeId)
   //   .then(gripe => {
   //     console.log(gripe);
   //     //make GET to google for map
@@ -91,7 +90,7 @@ app.get('/gripe/:id/map', (req, res) => {
   //     res.send(map)
   //   })
   //   .catch(err => console.error(err));
-  // res.send('getting map')
+  res.send('getting map')
 });
 
 ///user endpoints//////////
@@ -107,14 +106,6 @@ app.post('/createUser', (req, res) => {
   // res.send('user added to WaterGripes');
 });
 
-
-//ripped from passport docs
-//our auth should create a session and then bring the user back to gripe page??
-// app.post('/login',
-//   passport.authenticate('local', { successRedirect: '/',
-//                                    failureRedirect: '/login',
-//                                    failureFlash: true })
-// );
 
 ////get user for login
 app.post('/login/users/:userName', (req, res) => {
