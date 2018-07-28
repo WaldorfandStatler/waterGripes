@@ -26,22 +26,8 @@ export class GripeService {
   getGripes(): Observable<Gripe[]> {
     return this.http.get<Gripe[]>(this.gripesUrl)
       .pipe(
-        tap(gripes => this.log('fetched gripes')),
+        tap(gripes => console.log(gripes, 'fetched gripes')),
         catchError(this.handleError('getGripes', []))
-      );
-  }
-
-  /** GET gripe by id. Return `undefined` when id not found */
-  getGripeNo404<Data>(id: number): Observable<Gripe> {
-    const url = `${this.gripesUrl}/?id=${id}`;
-    return this.http.get<Gripe[]>(url)
-      .pipe(
-        map(gripes => gripes[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} gripe id=${id}`);
-        }),
-        catchError(this.handleError<Gripe>(`getGripe id=${id}`))
       );
   }
 
@@ -49,7 +35,7 @@ export class GripeService {
   getGripe(id: number): Observable<Gripe> {
     const url = `${this.gripesUrl}/${id}`;
     return this.http.get<Gripe>(url).pipe(
-      tap(_ => this.log(`fetched gripe id=${id}`)),
+      tap(_ => console.log(`fetched gripe id=${id}`)),
       catchError(this.handleError<Gripe>(`getGripe id=${id}`))
     );
   }
