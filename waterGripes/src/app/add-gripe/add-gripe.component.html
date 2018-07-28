@@ -1,58 +1,58 @@
 <h2>💧Add Gripes💧</h2>
 
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-        <label for="inputAddress">Block Number</label>
-        <input type="text" class="form-control" id="blockNumber" placeholder="Block Number">
-    </div>
-    <div class="form-group col-md-6">
-        <label for="street">Street</label>
-        <input type="text" class="form-control" id="street" placeholder="N. Galvez St">
-    </div>
+<div class="container">
+  <div class="row">
+      <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Block Number</label>
+                <input type="text" class="form-control" id="blockNumber" placeholder="Block Number">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" id="street" placeholder="N. Galvez St">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="crossStreet">Cross Street</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
+        
+          <div class="form-group col-md-6">
+              <label for="gripe">Gripe</label>
+              <select id="gripe" class="form-control">
+                <option value="None" selected="selected">Choose the one that Best Describes your Problem...</option>
+                <option value="Barricade is Needed">Barricade or Barrel is needed</option>
+                <option value="Pick up Barricade">Barricade or Barrel was left behind (abandoned)</option>
+                <option value="** ELECTRICAL EMERGENCY - Dispatch immediately **">Electrical Emergency</option>
+                <option value="Fire Hydrant Leak">Fire Hydrant Leak</option>
+                <option value="Fire Hydrant Broken">Fire Hydrant Broken</option>
+                <option value="Fish Kill in Canal">Fish Kill in Canal</option>
+                <option value="Foreign Material in Drainage Canal">Foreign Material in Drainage Canal (i.e. oil, paint, debris, etc.)</option>
+                <option value="Foreign Material in Storm Drain">Foreign Material in Storm Drain (i.e. oil, paint, concrete, etc.)</option>
+                <option value="Meter Box Leak">Meter Box is Leaking</option>
+                <option value="Manhole Cover Missing">Missing Manhole Cover</option>
+                <option value="Meter Box Cover Missing">Missing Meter Box Cover </option>
+                <option value="** ODOR REPORTED - Dispatch immediately **">Odor</option>
+                <option value="Other">Other</option>
+                <option value="** SEWER LEAK - Dispatch immediately **">Sewer Leak</option>
+                <option value="Sidewalk Needs Paving">Sidewalk Needs Paving After Repair</option>
+                <option value="Street Needs Paving">Street Needs Paving After Repair</option>
+                <option value="Water Leak">Water Leak</option>
+                <option value="Water None">Water None</option>
+                <option value="Water Pressure Low">Water Pressure Low</option>
+              </select>
+          </div>
+          <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="comment" placeholder="Additional comments here">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Gripe</button>
+        </form>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="crossStreet">Cross Street</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-
-  <div class="form-group col-md-6">
-      <label for="gripe">Gripe</label>
-      <select id="gripe" class="form-control">
-     
-        <option value="None" selected="selected">Choose the one that Best Describes your Problem...</option>
-        <option value="Barricade is Needed">Barricade or Barrel is needed</option>
-        <option value="Pick up Barricade">Barricade or Barrel was left behind (abandoned)</option>
-        <option value="** ELECTRICAL EMERGENCY - Dispatch immediately **">Electrical Emergency</option>
-        <option value="Fire Hydrant Leak">Fire Hydrant Leak</option>
-        <option value="Fire Hydrant Broken">Fire Hydrant Broken</option>
-                      <option value="Fish Kill in Canal">Fish Kill in Canal</option>
-                      <option value="Foreign Material in Drainage Canal">Foreign Material in Drainage Canal (i.e. oil, paint, debris, etc.)</option>
-                      <option value="Foreign Material in Storm Drain">Foreign Material in Storm Drain (i.e. oil, paint, concrete, etc.)</option>
-        <option value="Meter Box Leak">Meter Box is Leaking</option>
-        <option value="Manhole Cover Missing">Missing Manhole Cover</option>
-        <option value="Meter Box Cover Missing">Missing Meter Box Cover </option>
-        <option value="** ODOR REPORTED - Dispatch immediately **">Odor</option>
-        <option value="Other">Other</option>
-        <option value="** SEWER LEAK - Dispatch immediately **">Sewer Leak</option>
-        <option value="Sidewalk Needs Paving">Sidewalk Needs Paving After Repair</option>
-        <option value="Street Needs Paving">Street Needs Paving After Repair</option>
-        <option value="Water Leak">Water Leak</option>
-        <option value="Water None">Water None</option>
-        <option value="Water Pressure Low">Water Pressure Low</option>
-      </select>
-  </div>
-  <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="comment" placeholder="Additional comments here">
-  </div>
-
-  <button type="submit" class="btn btn-primary">Submit Gripe</button>
-
-
-</form>
+</div>

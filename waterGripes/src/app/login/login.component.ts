@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
       const PROVIDER_ID = 'watergripes';
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     
-    this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
+    this.socialAuthService.signIn(socialPlatformProvider)
+    .then( (userData) => {
         console.log(socialPlatform + ' sign in data : ' , userData);
         // Now sign-in with userData
         // ...
