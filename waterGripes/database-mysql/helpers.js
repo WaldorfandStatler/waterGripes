@@ -82,11 +82,9 @@ const createUser = (userInfo)=>{
   let zipcode = userInfo.zipcode;
   let email = userInfo.email;
   let password = userInfo.PASSWORD;
-  //INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy", "buddy3@gmail.com", "70117", 'password'); 
 
   let query = `INSERT into users (username, email, zipcode, PASSWORD) VALUES ( '${username}', '${email}', '${zipcode}', '${password}')`; 
-  //  let query = `INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy1", "buddy1@gmail.com", "70119", '12345'); 
-  //  `;
+  
   return new Promise(function (resolve, reject) {
     connection.query(query, function (err, result) {
       // console.log('gripes retrieved', JSON.stringify(phrases));

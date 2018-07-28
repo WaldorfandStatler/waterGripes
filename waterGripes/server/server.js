@@ -38,7 +38,6 @@ app.get('/gripes/:id', (req, res) => {
       console.error("error retrieving database data");
     });
 });
-
 //get get location might handle in browser
 // app.get('/getLocation', (req, res) => {
 
