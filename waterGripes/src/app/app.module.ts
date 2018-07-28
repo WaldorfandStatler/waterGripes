@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { GripeListComponent } from './gripe-list/gripe-list.component';
 import { GripeListEntryComponent } from './gripe-list-entry/gripe-list-entry.component';
 import { LoginComponent } from './login/login.component';
-import { CreateUserComponent } from './create-user/create-user.component';
 import { AddGripeComponent } from './add-gripe/add-gripe.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { GripeSearchComponent } from './gripe-search/gripe-search.component';
@@ -73,7 +72,6 @@ export function getAuthServiceConfigs() {
     GripeListComponent,
     GripeListEntryComponent,
     LoginComponent,
-    CreateUserComponent,
     AddGripeComponent,
     UserHomeComponent,
     GripeSearchComponent,
