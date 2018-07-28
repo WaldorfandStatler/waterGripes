@@ -7,7 +7,10 @@
 
 <ul class="gripes">
   <li *ngFor="let gripe of gripes">
-    <a routerLink="/gripes/{{gripe.id}}">
+  <!-- [class.selected]="gripe === selectedGripe" 
+    (click)="onSelect(gripe)"
+    > -->
+    <a routerLink="/gripe/{{gripe.id}}">
       <div>
         <span class="badge">
           {{gripe.zipcode}}
@@ -18,8 +21,9 @@
         <span class="status">
           Status: {{gripe.status}}
         </span>
-
       </div>
     </a>
   </li>
 </ul>
+
+<!-- <app-gripe-list-entry [gripe]="selectedGripe"></app-gripe-list-entry> -->

@@ -9,8 +9,11 @@ import { GripeService } from '../gripe.service';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent implements OnInit {
+  
+  selectedGripe: Gripe;
 
   gripes: Gripe[];
+
 
   constructor(private gripeService: GripeService) { }
 
@@ -23,4 +26,8 @@ export class UserHomeComponent implements OnInit {
       .subscribe(gripes => this.gripes = gripes);
   }
 
+  onSelect(gripe: Gripe): void {
+    console.log('click');
+    this.selectedGripe = gripe;
+  }
 }

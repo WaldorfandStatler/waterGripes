@@ -1,7 +1,7 @@
   <h1>💧 {{ title }} 💧</h1>
-  <div *ngIf="user">
-    <app-user-home></app-user-home>
+  <div *ngIf="!user">//need to reverse once auth works
+    <router-outlet></router-outlet>
   </div>
-  <div *ngIf="!user">
+  <div *ngIf="user">
     <app-login></app-login>
   </div>
