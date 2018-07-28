@@ -30,17 +30,9 @@ export class LoginComponent implements OnInit {
         // ...
         sessionStorage.setItem('user', userData.token);
         console.log(sessionStorage);
-<<<<<<< HEAD
-      }
-    );
-  }
-
-
-=======
 
       }
     );
   }
 }
  }
->>>>>>> d9c4e866c4827b913598b7bd6049cf784c4ae80a
