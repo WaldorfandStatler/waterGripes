@@ -1,8 +1,10 @@
   <h1>💧 {{ title }} 💧</h1>
-  <h1>{{title}}</h1>
-  <nav>
-    <a routerLink="/gripesList">Gripes</a>
-    <a routerLink="/createUser">Sign Up 2 Gripe</a>
-    <a routerLink="/login">Login and Gripe</a>
-  </nav>
-  <router-outlet></router-outlet>
+  <div *ngIf="user">
+    <app-user-home></app-user-home>
+  </div>
+  <div *ngIf="!user">
+    <h2>
+      <a routerLink="/login">Sign in to Gripe</a>
+    </h2> 
+    <app-gripe-list></app-gripe-list>
+  </div>
