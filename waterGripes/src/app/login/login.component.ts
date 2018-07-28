@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform + ' sign in data : ' , userData);
         // Now sign-in with userData
         // ...
-
+        sessionStorage.setItem('user', userData.token);
+        console.log(sessionStorage);
+        
       }
     );
 
