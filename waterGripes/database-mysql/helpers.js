@@ -27,7 +27,10 @@ const gripeById = (id) => {
     });
   });
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6b14152b32d8c459cb076d793c0134e7e9b28133
 
 const getLocationData = (id)=>{};
 

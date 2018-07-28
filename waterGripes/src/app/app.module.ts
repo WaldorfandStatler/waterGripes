@@ -17,6 +17,34 @@ import { AddGripeComponent } from './add-gripe/add-gripe.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { GripeSearchComponent } from './gripe-search/gripe-search.component';
 import { MessagesComponent } from './messages/messages.component';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+
+} from "angular-6-social-login";
+
+// Configs
+export function getAuthServiceConfigs() {
+  const PROVIDER_ID = 'watergripes';
+  const config = new AuthServiceConfig(
+      [
+        // {
+        //   id: FacebookLoginProvider."PROVIDER_ID",
+        //   provider: new FacebookLoginProvider("Your-Facebook-app-id")
+        // },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider('444388689542-s76dpddaenc155iv71pb5usshkvooder.apps.googleusercontent.com')
+        },
+        //   {
+        //     id: LinkedinLoginProvider.PROVIDER_ID,
+        //     provider: new LinkedinLoginProvider("1098828800522-m2ig6bieilc3tpqvmlcpdvrpvn86q4ks.apps.googleusercontent.com")
+        //   },
+      ]
+  );
+  return config;
+}
 
 @NgModule({
   imports: [
@@ -24,6 +52,7 @@ import { MessagesComponent } from './messages/messages.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    SocialLoginModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -32,6 +61,13 @@ import { MessagesComponent } from './messages/messages.component';
     //   InMemoryDataService, { dataEncapsulation: false }
     // )
   ],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
+
   declarations: [
     AppComponent,
     GripeListComponent,

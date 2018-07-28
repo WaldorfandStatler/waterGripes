@@ -28,7 +28,7 @@ app.get('/gripes', (req, res) => {
 });
 
 app.get('/gripes/:id', (req, res) => {
-  const  id = req.headers.id;
+  const  id = req.params.id;
   db.gripeById(id)
     .then((gripe) => {
       console.log('got your gripe server response', gripe);
