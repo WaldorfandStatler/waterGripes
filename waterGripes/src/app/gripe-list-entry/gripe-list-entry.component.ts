@@ -26,10 +26,10 @@ export class GripeListEntryComponent implements OnInit {
 
   getGripe(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.gripeService.getGripeNo404(id)
-      .subscribe(gripe => this.gripe = gripe);
+    this.gripeService.getGripe(id)
+      .subscribe(gripe => this.gripe = gripe[0]);
   }
-
+ß
   goBack(): void {
     this.location.back();
   }
