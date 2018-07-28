@@ -5,7 +5,7 @@ import {
 } from 'angular-6-social-login';
 
 @Component({
-  selector: 'app-signin',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

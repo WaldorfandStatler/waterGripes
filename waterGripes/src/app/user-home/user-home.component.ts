@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Gripe } from '../gripe';
+import { GripeService } from '../gripe.service';
+
 @Component({
   selector: 'app-user-home',
   templateUrl: './user-home.component.html',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor() { }
+  gripes: Gripe[];
+
+  constructor(private gripeService: GripeService) { }
 
   ngOnInit() {
+    this.getGripes();
+  }
+
+  getGripes(): void {
+    this.gripeService.getGripes()
+      .subscribe(gripes => this.gripes = gripes);
   }
 
 }
