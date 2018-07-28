@@ -110,7 +110,6 @@ module.exports = {
   createUser : createUser,
   submitGripe : submitGripe,
   updateGripe: updateGripe,
-  getGripeLocationById: getGripeLocationById,
   gripeById: gripeById
 }
 
