@@ -1,14 +1,10 @@
-
 <h2>
   💧Gripes💧
-  <button>
-    <a routerLink="/addGripe">Add gripe</a>
-  </button>
 </h2>
 
 <ul class="gripes">
   <li *ngFor="let gripe of gripes">
-    <a routerLink="/gripes/{{gripe.id}}">
+    
       <div>
         <span class="badge">
           {{gripe.zipcode}}
@@ -22,6 +18,5 @@
         </span>
 
         </div>
-      </a>
   </li>
 </ul>
