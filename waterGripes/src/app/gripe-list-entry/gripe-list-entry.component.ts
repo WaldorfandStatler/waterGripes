@@ -34,8 +34,8 @@ export class GripeListEntryComponent implements OnInit {
     this.location.back();
   }
 
-  vote(num): void {
-    this.gripeService.updateGripevote(this.gripe, num);
+  vote(votes): void {
+    this.gripeService.updateGripevote(this.gripe.id, votes);
   }
 
 
