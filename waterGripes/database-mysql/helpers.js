@@ -60,7 +60,7 @@ const submitGripe = (gripeInput)=>{
 };
 const updateGripe = ({ id, votes })=>{
   const query = 'UPDATE gripes SET votes = votes + ? WHERE id = ?';
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
       connection.query(query, [votes, id], (err, result) => {
         if (err) {
           return reject(err);
@@ -70,6 +70,35 @@ const updateGripe = ({ id, votes })=>{
       });
     });
   };
+
+const checkVotes = ({ id }) => {
+  // check votes
+  const getVotes = 'SELECT votes FROM gripes WHERE id = ?'
+  return new Promise((resolve, reject) => {
+    connection.query(getVotes, [id], (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      console.log(result);
+      return resolve(result);
+    });
+  })
+};
+// console.log(checkVotes({ id: 6 }));
+
+const setStatus = (id, status) => {
+  const set = 'UPDATE gripes SET status = ? WHERE id = ?';
+  return new Promise((resolve, reject) => {
+    connection.query(set, [status, id], (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      console.log(result);
+      return resolve(result);
+    });
+  })
+};
+// console.log(setStatus(1, 'Resolved'));
 
 //TODO: needs to be tested
 const createUser = (userInfo)=>{
@@ -99,10 +128,12 @@ const loginUser = (user) => {
 };
  
 module.exports = {
-  getAllGripes: getAllGripes,
-  createUser : createUser,
-  submitGripe : submitGripe,
-  updateGripe: updateGripe,
-  gripeById: gripeById
+   getAllGripes,
+  createUser,
+  submitGripe,
+  updateGripe,
+  gripeById,
+  checkVotes,
+  setStatus,
 }
 
