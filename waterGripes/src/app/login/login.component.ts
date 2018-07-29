@@ -36,16 +36,9 @@ export class LoginComponent implements OnInit {
               console.log(sessionStorage);
             })
               .then(() => {
-                console.log('launch redirect')
+                console.log('launch redirect');
               })
               .catch(err => console.error(err));
-          
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> a17e86bb62a24a45be13304ff0f42a72f72fda52
   }
 
-  
-}
