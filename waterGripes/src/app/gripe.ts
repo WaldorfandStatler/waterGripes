@@ -1,14 +1,14 @@
 export class Gripe {
   id: number;
-  // block_number: number;
-  // street: string;
-  // crossStreet: string;
-  // zipcode: number;
-  // latitude: number;
-  // longitude: number;
+  block_number: number;
+  street: string;
+  zipcode: number;
+  status: string;
   gripe: string;
-  // comment: string;
-  // votes: number;
-  // user_id: number;
-  // status: string;
+  votes: number;
+  crossStreet?: string;
+  comment?: string;
+  user_id?: number;
+  longitude?: number;
+  latitude?: number;
 }
