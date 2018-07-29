@@ -67,15 +67,14 @@ export class GripeService {
       catchError(this.handleError<Gripe>('addGripe'))
     );
   }
+
   /** PUT: update the gripe on the server */
-  updateGripevote(gripe: Gripe, term: number): Observable<any> {
-    console.log(gripe, term);
-    //todo look into angular http patch req
-    return this.http.patch(`${this.gripesUrl}/?votes=${term}`, gripe, httpOptions).pipe(
-      tap(_ => this.log(`updated gripe id=${gripe.id}`)),
-      catchError(this.handleError<any>('updateGripe'))
-    );
+  updateGripevote(id: number, votes: number){
+    console.log(id, votes);
+    return this.http.patch('/gripes/:id', { id, votes}, httpOptions)
+      .subscribe(res => console.log(res));
   }
+  
   /**
    * Handle Http operation that failed.
    * Let the app continue.
