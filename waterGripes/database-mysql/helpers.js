@@ -76,14 +76,13 @@ const updateGripe = (gripeVote)=>{
 
 //TODO: needs to be tested
 const createUser = (userInfo)=>{
-  console.log("trying to get username here", userInfo.username);
+  console.log("trying to getinfo");
   // let userInfo = user.headers;
-  let username = userInfo.username;
-  let zipcode = userInfo.zipcode;
+  let username = userInfo.name;
   let email = userInfo.email;
-  let password = userInfo.PASSWORD;
+  let image = userInfo.image
 
-  let query = `INSERT into users (username, email, zipcode, PASSWORD) VALUES ( '${username}', '${email}', '${zipcode}', '${password}')`; 
+  let query = `INSERT into users (username, email) VALUES ( '${username}', '${email}')`; 
   
   return new Promise(function (resolve, reject) {
     connection.query(query, function (err, result) {
