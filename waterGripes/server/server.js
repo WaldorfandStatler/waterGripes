@@ -64,11 +64,18 @@ app.post('/gripes', (req, res)=>{
 
 ///update gripe vote
 app.patch(`/gripes/:id`, (req, res) => {
-  const voteUpdate = req.body;
-  console.log('update vote', voteUpdate);
-  db.updateGripe(voteUpdate)
+  const { id, votes } = req.body;
+  db.updateGripe({ id, votes })
+    .then((change) => {
+      return db.checkVotes({ id })
+    })
     .then(response => {
-      console.log(response);
+      const votes = response[0].votes
+      return votes > 0
+        ? db.setStatus(id, 'Unresolved')
+        :db.setStatus(id, 'Resolved');
+    })
+    .then((response) => {
       res.send(response);
     })
     .catch(err => console.error(err));
