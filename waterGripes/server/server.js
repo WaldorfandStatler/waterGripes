@@ -64,12 +64,16 @@ app.post('/gripes', (req, res)=>{
 
 ///update gripe vote
 app.patch(`/gripes/:id`, (req, res) => {
-  const voteUpdate = req.body;
-  console.log('update vote', voteUpdate);
-  db.updateGripe(voteUpdate)
-    .then(response => {
-      console.log(response);
-      res.send(response);
+  const { id, votes } = req.body;
+  console.log('update vote', { id, votes });
+  db.updateGripe({ id, votes })
+    .then((change) => {
+      console.log(change);
+      return db.checkVotes({ id })
+    })
+    .then(votes => {
+      console.log(votes);
+      res.send(votes);
     })
     .catch(err => console.error(err));
     });
