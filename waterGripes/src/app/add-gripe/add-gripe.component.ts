@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Gripe } from '../gripe';
 import { GripeService } from '../gripe.service';
 
 
@@ -12,16 +16,23 @@ export class AddGripeComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private gripeService: GripeService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private gripeService: GripeService,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createGripe(model) {
-    this.gripeService.addGripe(model)
+    const addGripe = this;
+    addGripe.gripeService.addGripe(model)
     .subscribe(data => {
       console.log(data, ' this if from the server');
+      addGripe.goBack();
     });
-
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
