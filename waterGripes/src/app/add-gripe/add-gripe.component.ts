@@ -18,7 +18,6 @@ export class AddGripeComponent implements OnInit {
   }
 
   createGripe(model) {
-    // this.Http.addGripe(model);
     this.gripeService.addGripe(model)
     .subscribe(data => {
       console.log(data, ' this if from the server');
