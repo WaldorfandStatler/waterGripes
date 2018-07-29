@@ -1,4 +1,4 @@
-/* GripeListComponent's private CSS styles */
+/* GripeListComponent's private CSS styles
 
 .gripes {
   margin: 0 0 2em 0;
@@ -16,23 +16,23 @@
   border-radius: 4px;
 }
 
-/* .gripes li:hover {
+.gripes li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
-} */
+}
 
 .gripes a {
-  /* color: #888; */
+  color: #888;
   text-decoration: none;
   position: relative;
-  /* display: block; */
+  display: block;
   width: 250px;
 }
 
-/* .gripes a:hover {
+.gripes a:hover {
   color:#607D8B;
-} */
+}
 
 .gripes .badge {
   display: inline-block;
@@ -59,11 +59,11 @@
   background-color: #cc1610;
   line-height: 1em;
   position: relative;
-  /* left: -1px; */
+  left: -1px;
   top: -4px;
   height: 1.8em;
   min-width: 16px;
   text-align: left;
   margin-left: 1em;
   border-radius: 0 4px 4px 0;
-}
+} */
