@@ -11,17 +11,23 @@ import { from } from 'rxjs';
 })
 
 export class LoginComponent implements OnInit {
-
+  
+  userHome: '/userHome';
 
   constructor( 
     private socialAuthService: AuthService,
     private route: ActivatedRoute,
     private router: Router, 
-  ) {}
-
-  ngOnInit() {}
+  ) {
+   
+  }
+  
+  ngOnInit() {
+  }
 
   public socialSignIn(socialPlatform: string) {
+    
+    const login = this;
 
     const PROVIDER_ID = 'watergripes';
 
@@ -35,10 +41,22 @@ export class LoginComponent implements OnInit {
         console.log(sessionStorage);
       },
       error(err) { console.error('Error: ' + err); },
-      complete() { console.log('Completed'); }
+      complete() { 
+        console.log('Completed');
+        login.signedInCheck();
+      }
     });
           
   }
+
+  private signedInCheck() {
+    if (sessionStorage.user) {
+      this.router.navigate(['/userHome'])
+      console.log('user logged in');
+
+    }
+  }
+
 
 }
 
