@@ -8,10 +8,9 @@ CREATE TABLE users (
   id INTEGER (0)  AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
-  zipcode INTEGER NOT NULL,
-  PASSWORD VARCHAR(20) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY unique_email (email)
+  -- zipcode INTEGER NOT NULL,
+  PRIMARY KEY (id)
+  -- UNIQUE KEY unique_email (email)
 );
 -- 
 
@@ -40,9 +39,9 @@ CREATE TABLE gripes (
 --  *    mysql -u root -p < schema.sql///
 -- */
 
-INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy1", "buddy1@gmail.com", "70119", '12345'); 
-INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy2", "buddy2@gmail.com", "70118", "12345"); 
-INSERT into users (username, email, zipcode, PASSWORD) VALUES ("buddy3", "buddy3@gmail.com", "70117", 'password'); 
+INSERT into users (username, email ) VALUES ("buddy1", "buddy1@gmail.com"); 
+INSERT into users (username, email ) VALUES ("buddy2", "buddy2@gmail.com"); 
+INSERT into users (username, email ) VALUES ("buddy3", "buddy3@gmail.com"); 
 
 INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes, status) 
   VALUES ( 200, "St. Charles", "3rd", "70130", 30, 90, "Geyser in the drain", "help me", 0, 'Unresolved'); 
