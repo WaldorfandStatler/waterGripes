@@ -68,12 +68,21 @@ app.patch(`/gripes/:id`, (req, res) => {
   console.log('update vote', { id, votes });
   db.updateGripe({ id, votes })
     .then((change) => {
-      console.log(change);
       return db.checkVotes({ id })
     })
-    .then(votes => {
-      console.log(votes);
-      res.send(votes);
+    .then(response => {
+      const votes = response[0].votes
+      console.log(votes, ' ------');
+      if (votes > 0) {
+        db.setStatus(id, 'Unresolved');
+      } else {
+        db.setStatus(id, 'Resolved');
+      }
+        return {id};
+    })
+    .then((response) => {
+      console.log(response);
+      res.send(response);
     })
     .catch(err => console.error(err));
     });

@@ -87,6 +87,8 @@ const checkVotes = ({ id }) => {
 // console.log(checkVotes({ id: 6 }));
 
 const setStatus = (id, status) => {
+  console.log(id, status);
+  
   const set = 'UPDATE gripes SET status = ? WHERE id = ?';
   return new Promise((resolve, reject) => {
     connection.query(set, [status, id], (err, result) => {
