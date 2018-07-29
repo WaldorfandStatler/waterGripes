@@ -9,7 +9,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Water Gripes';
   user = sessionStorage.user;
-  // saveUserSession: function (user, token) {
-  //    sessionStorage.setItem(user, token);
-  // }
 }
