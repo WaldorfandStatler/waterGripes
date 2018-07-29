@@ -54,9 +54,8 @@ export class GripeService {
 
   //////// Save methods //////////
   addUser(user) {
-    const body = { user }
-    console.log('userpost', body);
-    return this.http.post('/users', body, httpOptions).subscribe(res => console.log(res));
+    console.log('userpost', user);
+    return this.http.post('/users', user, httpOptions).subscribe(res => console.log(res));
   }
 
 
