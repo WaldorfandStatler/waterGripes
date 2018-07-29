@@ -32,19 +32,19 @@ const getLocationData = (id)=>{};
 
 const submitGripe = (gripeInput)=>{
   console.log(gripeInput);
-  let blockNumber = gripeInput.block_number;
+  let blockNumber = gripeInput.blockNumber;
   let street = gripeInput.street;
   let crossStreet = gripeInput.crossStreet;
-  let zipcode = gripeInput.zipcode;
-  let latitude = gripeInput.latitude;
-  let longitude = gripeInput.longitude;
+  let zipcode = gripeInput.inputZip;
+  let latitude = 30.5;
+  let longitude = 90.0;
   let gripe = gripeInput.gripe;
   let comment = gripeInput.comment;
   let votes = gripeInput.votes;
   let status = gripeInput.status;
 
   //the query string;
-  let query = `INSERT into gripes (block_number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
+  let query = `INSERT into gripes (block_Number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
   VALUES ( '${blockNumber}', '${street}', '${crossStreet}', '${zipcode}', '${latitude}', '${longitude}', '${gripe}', '${comment}', 5, 'Unresolved'); `
 
   return new Promise(function (resolve, reject) {
