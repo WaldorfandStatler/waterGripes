@@ -10,7 +10,7 @@ import { GripeService } from '../gripe.service';
 
 export class AddGripeComponent implements OnInit {
 
-  model: any = {}
+  model: any = {};
 
   constructor(private gripeService: GripeService) { }
 
