@@ -22,7 +22,7 @@ app.get('/gripes', (req, res) => {
       res.send(gripes);
     })
     .catch((err) => {
-      console.error("error retrieving database data");
+      console.error(err);
     });
   
 });
@@ -35,7 +35,7 @@ app.get('/gripes/:id', (req, res) => {
       res.send(gripe);
     })
     .catch((err) => {
-      console.error("error retrieving database data");
+      console.error(err);
     });
 });
 //get get location might handle in browser
@@ -55,22 +55,21 @@ app.post('/gripes', (req, res)=>{
   db.submitGripe(gripe)
     .then((response) => {
       console.log(response);
-      res.send('Gripe added to DB');
+      res.send(response);
     })
     .catch((err) => {
-      console.error("error posting gripe", err);
+      console.error(err);
     });
-  res.send('Gripe added to DB');
 })
 
 ///update gripe vote
 app.patch(`/gripes/:id`, (req, res) => {
-  const gripeVote = req.body;
-  console.log('update vote', gripeVote);
-  db.updateGripe(gripeVote)
+  const voteUpdate = req.body;
+  console.log('update vote', voteUpdate);
+  db.updateGripe(voteUpdate)
     .then(response => {
       console.log(response);
-      res.send('vote recorded');
+      res.send(response);
     })
     .catch(err => console.error(err));
     });
@@ -99,26 +98,10 @@ app.post('/users', (req, res) => {
   db.createUser(user)
     .then(user => {
       console.log(user, 'added to system');
-      res.send(`${user.username} welcomed to WaterGripes`);
+      res.send(user);
     })
     .catch(err => console.error(err));
 });
-
-
-////get user for login
-app.post('/login/users/:userName', (req, res) => {
-  const user = req.body;
-  console.log(req.body);
-  // db.loginUser(user)
-  //   .then(cookie => {
-  //     console.log(`${user.userName} is logged in.`);
-  //     res.send(cookie);//what ever the seesion object is
-  //   })
-  //   .catch(err => console.error(err));
-  res.send('user logged in');
-});
-
-
 
 module.exports = app;
 //comments
