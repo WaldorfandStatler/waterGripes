@@ -58,13 +58,10 @@ const submitGripe = (gripeInput)=>{
   });
 
 };
-const updateGripe = (gripeVote)=>{
-  let id = gripeVote.id;
-  let vote = gripeVote.gripeVote;
-
-  let query = ` UPDATE  gripes SET votes = votes + '${vote}' WHERE id = '${id}'`;
+const updateGripe = ({ id, votes })=>{
+  const query = 'UPDATE gripes SET votes = votes + ? WHERE id = ?';
     return new Promise(function (resolve, reject) {
-      connection.query(query, function (err, result) {
+      connection.query(query, [votes, id], (err, result) => {
         if (err) {
           return reject(err);
         }
