@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   public socialSignIn(socialPlatform: string) {
     let socialPlatformProvider;
 
-   
         const PROVIDER_ID = 'watergripes';
         socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
       
@@ -39,6 +38,10 @@ export class LoginComponent implements OnInit {
                 console.log('launch redirect');
               })
               .catch(err => console.error(err));
-    }
+          
   }
+
+}
+
+  
 
