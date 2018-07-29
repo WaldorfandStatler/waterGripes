@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -53,6 +53,14 @@ export class GripeService {
   }
 
   //////// Save methods //////////
+  addUser(user) {
+    const body = { user }
+    console.log('userpost', body);
+    return this.http.post('/users', body, httpOptions).subscribe(res => console.log(res));
+  }
+
+
+
 
   /** POST: add a new gripe to the server */
   addGripe(gripe: Gripe): Observable<Gripe> {
