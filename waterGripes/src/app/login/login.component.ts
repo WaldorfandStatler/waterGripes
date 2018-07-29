@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService, GoogleLoginProvider } from 'angular-6-social-login';
-import { first } from 'rxjs/operators';
+import { from } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',
@@ -21,23 +22,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   public socialSignIn(socialPlatform: string) {
-    let socialPlatformProvider;
 
-        const PROVIDER_ID = 'watergripes';
-        socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-      
-        this.socialAuthService.signIn(socialPlatformProvider)
-          .then((userData) => {
-              console.log(socialPlatform + ' sign in data : ' , userData);
-              // Now sign-in with userData
-              // ...
-              sessionStorage.setItem('user', userData.token);
-              console.log(sessionStorage);
-            })
-              .then(() => {
-                console.log('launch redirect')
-              })
-              .catch(err => console.error(err));
+    const PROVIDER_ID = 'watergripes';
+
+    const socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    
+    const user = from(this.socialAuthService.signIn(socialPlatformProvider));
+    user.subscribe({
+      next(userData) { 
+        console.log(`${socialPlatform} sign in data : ${userData}`); 
+        sessionStorage.setItem('user', userData.token); // Now sign-in with userData
+        console.log(sessionStorage);
+      },
+      error(err) { console.error('Error: ' + err); },
+      complete() { console.log('Completed'); }
+    });
           
   }
 
