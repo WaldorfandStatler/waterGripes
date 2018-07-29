@@ -10,11 +10,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/userHome', pathMatch: 'full' },
-  { path: 'addGripe', component: AddGripeComponent },
-  { path: 'gripesList', component: GripeListComponent },
-  { path: 'gripe/:id', component: GripeListEntryComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'userHome', component: UserHomeComponent },
+  { path: 'gripesList', component: GripeListComponent },
+  { path: 'addGripe', component: AddGripeComponent },//need to be logged in
+  { path: 'gripe/:id', component: GripeListEntryComponent },//need to be logged in
+  { path: 'userHome', component: UserHomeComponent },//need to be logged in
 ];
 
 @NgModule({
