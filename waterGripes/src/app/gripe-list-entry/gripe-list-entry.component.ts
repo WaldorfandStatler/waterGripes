@@ -29,15 +29,13 @@ export class GripeListEntryComponent implements OnInit {
     this.gripeService.getGripe(id)
       .subscribe(gripe => this.gripe = gripe[0]);
   }
-ß
+
   goBack(): void {
     this.location.back();
   }
 
-  vote(num): void {
-
-    this.gripeService.updateGripevote(this.gripe, num);
-      // .subscribe();
+  vote(votes): void {
+    this.gripeService.updateGripevote(this.gripe.id, votes);
   }
 
 
