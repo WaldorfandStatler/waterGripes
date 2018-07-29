@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService, GoogleLoginProvider } from 'angular-6-social-login';
 import { from } from 'rxjs';
+import { flatMap, map, tap } from 'rxjs/operators';
 
+import { GripeService } from '../gripe.service';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +19,11 @@ export class LoginComponent implements OnInit {
   constructor( 
     private socialAuthService: AuthService,
     private route: ActivatedRoute,
-    private router: Router, 
-  ) {
-   
-  }
+    private router: Router,
+    private gripeService: GripeService, 
+  ) {}
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public socialSignIn(socialPlatform: string) {
     
@@ -36,9 +36,12 @@ export class LoginComponent implements OnInit {
     const user = from(this.socialAuthService.signIn(socialPlatformProvider));
     user.subscribe({
       next(userData) { 
+        console.log(userData);
         console.log(`${socialPlatform} sign in data : ${userData}`); 
         sessionStorage.setItem('user', userData.token); // Now sign-in with userData
         console.log(sessionStorage);
+        login.gripeService.addUser(userData)
+          
       },
       error(err) { console.error('Error: ' + err); },
       complete() { 

@@ -94,16 +94,15 @@ app.get('/gripe/:id/map', (req, res) => {
 });
 
 ///user endpoints//////////
-app.post('/createUser', (req, res) => {
+app.post('/users', (req, res) => {
   const user = req.body;
   console.log('create user: ', user);
   db.createUser(user)
     .then(user => {
-      // console.log(user, 'added to system');
+      console.log(user, 'added to system');
       res.send(`${user.username} welcomed to WaterGripes`);
     })
     .catch(err => console.error(err));
-  // res.send('user added to WaterGripes');
 });
 
 
