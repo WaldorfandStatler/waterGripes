@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Gripe } from '../gripe';
-import { GripeService } from '../gripe.service';
-
 @Component({
-  selector: 'app-add-gripe',
+  selector: 'app-create-user',
   templateUrl: './add-gripe.component.html',
   styleUrls: ['./add-gripe.component.css']
 })
