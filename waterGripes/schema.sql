@@ -13,6 +13,7 @@ CREATE TABLE users (
   PRIMARY KEY (id),
   UNIQUE KEY unique_email (email)
 );
+-- 
 
 CREATE TABLE gripes (
   id INTEGER (0)  PRIMARY KEY  AUTO_INCREMENT,
