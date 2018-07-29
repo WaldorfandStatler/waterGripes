@@ -29,7 +29,7 @@ export class GripeListEntryComponent implements OnInit {
     this.gripeService.getGripe(id)
       .subscribe(gripe => this.gripe = gripe[0]);
   }
-ß
+
   goBack(): void {
     this.location.back();
   }
