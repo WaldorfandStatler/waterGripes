@@ -31,7 +31,7 @@ app.get('/gripes/:id', (req, res) => {
   const  id = req.params.id;
   db.gripeById(id)
     .then((gripe) => {
-      console.log('got your gripe server response', gripe);
+      console.log('got your gripe server response');
       res.send(gripe);
     })
     .catch((err) => {
@@ -73,7 +73,6 @@ app.patch(`/gripes/:id`, (req, res) => {
       res.send('vote recorded');
     })
     .catch(err => console.error(err));
-  // res.send('vote recorded');
     });
 
 //get a google map for gripe
@@ -96,7 +95,7 @@ app.get('/gripe/:id/map', (req, res) => {
 ///user endpoints//////////
 app.post('/users', (req, res) => {
   const user = req.body;
-  console.log('create user: ', user);
+  console.log('user created');
   db.createUser(user)
     .then(user => {
       console.log(user, 'added to system');
