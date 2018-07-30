@@ -28,7 +28,9 @@ export class GripeListEntryComponent implements OnInit {
   getGripe(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.gripeService.getGripe(id)
-      .subscribe(gripe => this.gripe = gripe[0]);
+      .subscribe(gripe => {
+        this.gripe = gripe[0];
+      })
   }
 
   goBack(): void {
@@ -42,5 +44,5 @@ export class GripeListEntryComponent implements OnInit {
     this.goBack();
   }
 
-
+  
 }

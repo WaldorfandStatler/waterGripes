@@ -2,8 +2,15 @@ const express = require('express');
 const path = require('path');
 const { urlencoded, json } = require('body-parser')
 const db = require('../database-mysql/helpers.js');
+const axios = require('axios');
 // const sendEmail = require('./emailHelper.js');
 const app = express();
+
+const {
+  SENDGRID_API_KEY,
+  GOOGLE_MAPS_API_KEY,
+  GOOGLE_GEOCODE_API_KEY,
+} = require('../config');
 
 app.use(urlencoded({ extended: false }))
 app.use(json())
@@ -98,20 +105,22 @@ app.patch(`/gripes/:id`, (req, res) => {
     });
 
 //get a google map for gripe
-app.get('/gripe/:id/map', (req, res) => {
-  // const gripeId = req.params.id;
-  // console.log(gripeId);
+app.post('/gripe/:address', (req, res) => {
+  const { address, id } = req.body;
+  console.log(address, id);
+  const api = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${GOOGLE_GEOCODE_API_KEY}`;
+  // take address and make call to google geocode to get position
+  axios.get(api)
+    .then(response => {
+      const pos = response.data.results[0].geometry.location;
+      console.log(pos)
+      db.setLocation(pos, id);
+      return pos;
+    })
+    .catch(err => console.error(err));
+  // insert pos into database
   
-  // db.gripeById(gripeId)
-  //   .then(gripe => {
-  //     console.log(gripe);
-  //     //make GET to google for map
-  //   })
-  //   .then((map) => {
-  //     res.send(map)
-  //   })
-  //   .catch(err => console.error(err));
-  res.send('getting map')
+  res.sendStatus(201);
 });
 
 ///user endpoints//////////
