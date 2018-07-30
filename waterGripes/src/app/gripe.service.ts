@@ -78,6 +78,8 @@ export class GripeService {
   //get geolaction by address
   getPostion(address) {
     console.log(address);
+    return this.http.get(`/gripe/${address}`).subscribe(res => console.log(res));
+      // .pipe(tap(any => console.log(any)));
   }
   
   /**
