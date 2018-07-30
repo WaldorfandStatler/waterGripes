@@ -18,7 +18,7 @@ const sendEmail = (gripe) => {
   console.log('send email', gripe);
 
   const msg = {
-    to: 'buttsjosef@gmail.com',
+    to: 'twogrumpyolmen@gmail.com',
     from: 'twogrumpyolmen@gmail.com',
     subject: 'New Orleans Water Leak Report',
     html: `${gripe.gripe} at ${gripe.blockNumber} ${gripe.street}, New Orleans, LA ${gripe.inputZip}. 
