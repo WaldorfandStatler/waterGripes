@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const { urlencoded, json } = require('body-parser')
 const db = require('../database-mysql/helpers.js');
+const axios = require('axios');
 // const sendEmail = require('./emailHelper.js');
 const app = express();
 
@@ -98,9 +99,11 @@ app.patch(`/gripes/:id`, (req, res) => {
     });
 
 //get a google map for gripe
-app.get('/gripe/:address', (req, res) => {
-  const address = req.params.address;
-  console.log(address);
+app.post('/gripe/:address', (req, res) => {
+  const { address, id } = req.body;
+  console.log(address, id);
+  // take address and make call to google geocode to get position
+  // insert pos into database
   
   res.send(address);
 });

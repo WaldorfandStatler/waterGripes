@@ -46,11 +46,11 @@ export class GripeListEntryComponent implements OnInit {
   }
 
   getMap(): void{
+    const id = this.gripe.id;
     const num = this.gripe.block_number;
     const street = this.gripe.street.split(' ').join('+');
     const address = `${num}+${street},+New+Orleans,+LA`;
-    const pos = this.gripeService.getPostion(address);
-
+    const pos = this.gripeService.getPostion(address, id);
   }
 
 }
