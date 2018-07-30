@@ -29,7 +29,18 @@ const gripeById = (id) => {
   });
 }
 
-const getLocationData = (id)=>{};
+const setLocation = (pos, id)=>{
+  const set = 'UPDATE gripes SET latitude = ?, longitude = ? WHERE id = ?';
+  return new Promise((resolve, reject) => {
+    connection.query(set, [pos.lat, pos.lng, id], (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      console.log(result);
+      return resolve(result);
+    });
+  })
+};
 
 const submitGripe = (gripeInput)=>{
   console.log( ' submit gripe', gripeInput);
@@ -141,5 +152,6 @@ module.exports = {
   gripeById,
   checkVotes,
   setStatus,
+  setLocation,
 }
 

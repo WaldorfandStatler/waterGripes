@@ -6,6 +6,12 @@ const axios = require('axios');
 // const sendEmail = require('./emailHelper.js');
 const app = express();
 
+const {
+  SENDGRID_API_KEY,
+  GOOGLE_MAPS_API_KEY,
+  GOOGLE_GEOCODE_API_KEY,
+} = require('../config');
+
 app.use(urlencoded({ extended: false }))
 app.use(json())
 
@@ -102,7 +108,16 @@ app.patch(`/gripes/:id`, (req, res) => {
 app.post('/gripe/:address', (req, res) => {
   const { address, id } = req.body;
   console.log(address, id);
+  const api = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${GOOGLE_GEOCODE_API_KEY}`;
   // take address and make call to google geocode to get position
+  axios.get(api)
+    .then(response => {
+      const pos = response.data.results[0].geometry.location;
+      db.setLocation(pos, id);
+      return pos;
+    })
+    .then(pos => { console.log(pos)})
+    .catch(err => console.error(err));
   // insert pos into database
   
   res.send(address);
