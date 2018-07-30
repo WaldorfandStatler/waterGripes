@@ -1,4 +1,5 @@
 const connection = require('../database-mysql/index.js');
+const sendEmail = require('../server/emailHelper.js');
 
 
 const getAllGripes = ()=>{
@@ -31,7 +32,8 @@ const gripeById = (id) => {
 const getLocationData = (id)=>{};
 
 const submitGripe = (gripeInput)=>{
-  console.log(gripeInput);
+  console.log( ' submit gripe', gripeInput);
+
   let blockNumber = gripeInput.blockNumber;
   let street = gripeInput.street;
   let crossStreet = gripeInput.crossStreet;
@@ -42,6 +44,8 @@ const submitGripe = (gripeInput)=>{
   let comment = gripeInput.comment;
   let votes = gripeInput.votes;
   let status = gripeInput.status;
+
+  sendEmail(gripeInput);
 
   //the query string;
   let query = `INSERT into gripes (block_Number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
