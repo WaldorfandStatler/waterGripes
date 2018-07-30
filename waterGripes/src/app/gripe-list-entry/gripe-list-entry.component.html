@@ -3,7 +3,10 @@
 
   <h3>Gripe Status: {{gripe.status}}</h3>
   <div>
-    {{gripe.gripe | uppercase}}
+    {{gripe.gripe | uppercase }}
+  </div>
+  <div>
+    {{gripe.comment}}
   </div>
   <div>
     On the {{gripe.block_number}} block of {{gripe.street}}
@@ -12,7 +15,6 @@
     New Orleans, LA {{gripe.zipcode}}
   </div>
   <div>
-  <div>Map goes here</div>
 
   </div>
   Vote: <span><button (click)="vote(-1)">Resolved</button></span><button (click)="vote(1)">UnResolved</button>
