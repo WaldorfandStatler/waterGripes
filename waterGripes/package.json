@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@sendgrid/mail": "^6.3.1",
     "angular-6-social-login": "^1.1.1",
     "angular-in-memory-web-api": "^0.6.1",
     "body-parser": "^1.18.3",
