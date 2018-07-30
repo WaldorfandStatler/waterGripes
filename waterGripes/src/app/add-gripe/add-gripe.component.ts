@@ -38,7 +38,7 @@ export class AddGripeComponent implements OnInit {
 
   getPos(model): void {
     const id = model.id;
-    const num = model.block_number;
+    const num = model.blockNumber;
     const street = model.street.split(' ').join('+');
     const address = `${num}+${street},+New+Orleans,+LA`;
     this.gripeService.getPostion(address, id);
