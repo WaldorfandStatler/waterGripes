@@ -38,6 +38,22 @@ app.get('/gripes/:id', (req, res) => {
       console.error(err);
     });
 });
+
+
+////////end points to handle page breaks from Ang6 router///
+
+app.get('/login', (req, res) => {
+  res.redirect('/');
+});
+
+app.get('/userHome', (req, res) => {
+  res.redirect('/');
+});
+
+app.get('/addGripe', (req, res) => {
+  res.redirect('/');
+});
+
 //get get location might handle in browser
 // app.get('/getLocation', (req, res) => {
 
