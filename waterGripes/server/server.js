@@ -98,20 +98,11 @@ app.patch(`/gripes/:id`, (req, res) => {
     });
 
 //get a google map for gripe
-app.get('/gripe/:id/map', (req, res) => {
-  // const gripeId = req.params.id;
-  // console.log(gripeId);
+app.get('/gripe/:address', (req, res) => {
+  const address = req.params.address;
+  console.log(address);
   
-  // db.gripeById(gripeId)
-  //   .then(gripe => {
-  //     console.log(gripe);
-  //     //make GET to google for map
-  //   })
-  //   .then((map) => {
-  //     res.send(map)
-  //   })
-  //   .catch(err => console.error(err));
-  res.send('getting map')
+  res.send(address);
 });
 
 ///user endpoints//////////
