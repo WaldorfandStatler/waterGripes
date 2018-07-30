@@ -5,63 +5,39 @@
           <div>
             <h2>💧Gripes💧</h2></div>
           <div>
-            <button>
+            <button type="button" class="btn btn-warning">
               <a routerLink="/addGripe">Add gripe</a>
             </button>
           </div>
-              
-          
-      </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6" >
-            
-      <ul class="gripes">
-          <li *ngFor="let gripe of gripes">
-            <a routerLink="/gripe/{{gripe.id}}">
-              <div>
-                <span class="badge">
-                  {{gripe.zipcode}}
-                </span>
-                <span class="gripe">
-                  {{gripe.gripe}}
-                </span>
-                <span class="status">
-                  Status: {{gripe.status}}
-                </span>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <div class="gripes" align="left">
+                <div *ngFor="let gripe of gripes">
+                  <a routerLink="/gripe/{{gripe.id}}">
+                  <div class="gripe">
+                    <span class="badge">
+                      {{gripe.zipcode}}
+                    </span>
+                    <span class="gripe">
+                      {{gripe.gripe}}
+                    </span>
+                    <span class="status">
+                      is
+                      <i>
+                        {{gripe.status | uppercase}}
+                      </i>
+                    </span>
+                  </div>
+                  </a>
+                </div>
               </div>
-            </a>
-          </li>
-        </ul>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          </div>
+        
+
+
   
-    </div>
-    <div class="col-md-3"></div>
 
-  </div>
-</div>
-
-<!-- <h2>
-  💧Gripes💧
-  <button>
-    <a routerLink="/addGripe">Add gripe</a>
-  </button>
-</h2> -->
-
-<!-- <ul class="gripes">
-  <li *ngFor="let gripe of gripes">
-    <a routerLink="/gripe/{{gripe.id}}">
-      <div>
-        <span class="badge">
-          {{gripe.zipcode}}
-        </span>
-        <span class="gripe">
-          {{gripe.gripe}}
-        </span>
-        <span class="status">
-          Status: {{gripe.status}}
-        </span>
-      </div>
-    </a>
-  </li>
-</ul> -->

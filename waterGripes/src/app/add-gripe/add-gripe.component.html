@@ -1,9 +1,20 @@
 <h2>💧Add Gripes💧</h2>
 
-<div class="container-fluid">
+<div class="container">
+  <button type="submit" 
+    value="submit" 
+    class="btn btn-primary" 
+    (click)="createGripe(model)">
+      Submit Gripe
+  </button>
+  <button 
+  type="button"
+   class="btn btn-secondary"
+  (click)="goBack()">
+    go back
+  </button>
   <div class="row">
       <form>
-          {{diagnostic}}
           <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputAddress">Block Number</label>
@@ -20,7 +31,7 @@
               <input type="text" class="form-control" id="inputCity"  [(ngModel)]="model.crossStreet" name="crossStreet">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputZip">Zip</label>
+              <label for="inputZip">Zipcode</label>
               <input type="text" class="form-control" id="inputZip"  [(ngModel)]="model.inputZip" name="inputZip">
             </div>
           </div>
@@ -51,12 +62,9 @@
               </select>
           </div>
           <div class="form-group col-md-6">
+              <label for="comment">Additional Comment</label>
               <input type="text" class="form-control" id="comment" placeholder="Additional comments here">
           </div>
-          <button type="submit" value="submit" class="btn btn-primary" (click)="createGripe(model)">
-            Submit Gripe
-          </button>
         </form>
-        <button (click)="goBack()">go back</button>
   </div>
 </div>
