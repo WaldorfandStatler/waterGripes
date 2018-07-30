@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Gripe } from '../gripe';
 import { GripeService } from '../gripe.service';
+import { log } from 'util';
 
 
 @Component({
@@ -35,7 +36,10 @@ export class GripeListEntryComponent implements OnInit {
   }
 
   vote(votes): void {
-    this.gripeService.updateGripevote(this.gripe.id, votes);
+    this.gripe.votes
+      ? this.gripeService.updateGripevote(this.gripe.id, votes)
+      : console.log('votes at 0');
+    this.goBack();
   }
 
 
