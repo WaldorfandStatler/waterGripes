@@ -30,7 +30,6 @@ export class GripeListEntryComponent implements OnInit {
     this.gripeService.getGripe(id)
       .subscribe(gripe => {
         this.gripe = gripe[0];
-        this.getMap();
       })
   }
 
@@ -45,12 +44,5 @@ export class GripeListEntryComponent implements OnInit {
     this.goBack();
   }
 
-  getMap(): void{
-    const id = this.gripe.id;
-    const num = this.gripe.block_number;
-    const street = this.gripe.street.split(' ').join('+');
-    const address = `${num}+${street},+New+Orleans,+LA`;
-    const pos = this.gripeService.getPostion(address, id);
-  }
-
+  
 }

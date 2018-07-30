@@ -3,8 +3,10 @@
 <div class="container">
   <button type="submit" 
     value="submit" 
-    class="btn btn-primary" 
-    (click)="createGripe(model)">
+    class="btn btn-primary"
+    (click)="createGripe(model)"
+    (click)="getPos(model)" 
+    >
       Submit Gripe
   </button>
   <button 
@@ -63,7 +65,12 @@
           </div>
           <div class="form-group col-md-6">
               <label for="comment">Additional Comment</label>
-              <input type="text" class="form-control" id="comment" placeholder="Additional comments here">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="comment"
+                [(ngModel)]="model.comment"
+                placeholder="Additional comments here">
           </div>
         </form>
   </div>

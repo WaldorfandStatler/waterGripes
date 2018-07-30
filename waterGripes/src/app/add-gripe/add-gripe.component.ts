@@ -35,4 +35,13 @@ export class AddGripeComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  getPos(model): void {
+    const id = model.id;
+    const num = model.block_number;
+    const street = model.street.split(' ').join('+');
+    const address = `${num}+${street},+New+Orleans,+LA`;
+    this.gripeService.getPostion(address, id);
+  }
+
 }
