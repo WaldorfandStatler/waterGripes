@@ -113,14 +113,14 @@ app.post('/gripe/:address', (req, res) => {
   axios.get(api)
     .then(response => {
       const pos = response.data.results[0].geometry.location;
+      console.log(pos)
       db.setLocation(pos, id);
       return pos;
     })
-    .then(pos => { console.log(pos)})
     .catch(err => console.error(err));
   // insert pos into database
   
-  res.send(address);
+  res.sendStatus(201);
 });
 
 ///user endpoints//////////
