@@ -74,6 +74,11 @@ export class GripeService {
     return this.http.patch('/gripes/:id', { id, votes}, httpOptions)
       .subscribe(res => console.log(res));
   }
+
+  //get geolaction by address
+  getPostion(address) {
+    console.log(address);
+  }
   
   /**
    * Handle Http operation that failed.

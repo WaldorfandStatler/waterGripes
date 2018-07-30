@@ -28,7 +28,10 @@ export class GripeListEntryComponent implements OnInit {
   getGripe(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.gripeService.getGripe(id)
-      .subscribe(gripe => this.gripe = gripe[0]);
+      .subscribe(gripe => {
+        this.gripe = gripe[0];
+        this.getMap();
+      })
   }
 
   goBack(): void {
@@ -46,7 +49,8 @@ export class GripeListEntryComponent implements OnInit {
     const num = this.gripe.block_number;
     const street = this.gripe.street.split(' ').join('+');
     const address = `${num}+${street},+New+Orleans,+LA`;
-    this.gripeService.getMapByAddress(address);
+    const pos = this.gripeService.getPostion(address);
+
   }
 
 }
