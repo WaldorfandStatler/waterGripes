@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Gripe } from './gripe';
-import { MessageService } from './message.service';
 
 
 const httpOptions = {
@@ -18,9 +17,7 @@ export class GripeService {
 
   private gripesUrl = '/gripes';  // URL to web api
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+  constructor(private http: HttpClient) { }
 
   getGripes(): Observable<Gripe[]> {
     return this.http.get<Gripe[]>(this.gripesUrl)
@@ -46,7 +43,7 @@ export class GripeService {
       return of([]);
     }
     return this.http.get<Gripe[]>(`${this.gripesUrl}/?zipcode=${term}`).pipe(
-      tap(_ => this.log(`found gripes matching "${term}"`)),
+      tap(_ => console.log(`found gripes matching "${term}"`)),
       catchError(this.handleError<Gripe[]>('searchGripes', []))
     );
   }
@@ -63,7 +60,7 @@ export class GripeService {
   /** POST: add a new gripe to the server */
   addGripe(gripe: Gripe): Observable<Gripe> {
     return this.http.post<Gripe>(this.gripesUrl, gripe, httpOptions).pipe(
-      tap((gripe: Gripe) => this.log(`added gripe w/ id=${gripe.id}`)),
+      tap((gripe: Gripe) => console.log(`added gripe w/ id=${gripe.id}`)),
       catchError(this.handleError<Gripe>('addGripe'))
     );
   }
@@ -95,7 +92,7 @@ export class GripeService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
@@ -103,7 +100,5 @@ export class GripeService {
   }
 
   /** Log a GripeService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add(`GripeService: ${message}`);
-  }
+  
 }
