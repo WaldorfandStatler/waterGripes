@@ -3,14 +3,9 @@ const path = require('path');
 const { urlencoded, json } = require('body-parser')
 const db = require('../database-mysql/helpers.js');
 const axios = require('axios');
-// const sendEmail = require('./emailHelper.js');
 const app = express();
 
-const {
-  SENDGRID_API_KEY,
-  GOOGLE_MAPS_API_KEY,
-  GOOGLE_GEOCODE_API_KEY,
-} = require('../config');
+const { GOOGLE_GEOCODE_API_KEY } = require('../config');//for getting geocode
 
 app.use(urlencoded({ extended: false }))
 app.use(json())
@@ -61,15 +56,6 @@ app.get('/addGripe', (req, res) => {
   res.redirect('/');
 });
 
-//get get location might handle in browser
-// app.get('/getLocation', (req, res) => {
-
-//   //grab geolaction data
-//   // from data get lat , long, block #, street, cross street, zip code
-//   // add send back to client to be put in post req for gripes
-//   // console.log(req.connection.remoteAddress.slice(7));
-//   res.send('getting location');
-// })
 
 //add a gripe to db.
 app.post('/gripes', (req, res)=>{
@@ -104,7 +90,7 @@ app.patch(`/gripes/:id`, (req, res) => {
     .catch(err => console.error(err));
     });
 
-//get a google map for gripe
+//gets geolaction for address submitted
 app.post('/gripe/:address', (req, res) => {
   const { address, id } = req.body;
   console.log(address, id);
@@ -114,13 +100,10 @@ app.post('/gripe/:address', (req, res) => {
     .then(response => {
       const pos = response.data.results[0].geometry.location;
       console.log(pos)
-      db.setLocation(pos, id);
-      return pos;
+      db.setLocation(pos, id);// insert pos into database
     })
+    .then(() => res.sendStatus(201))
     .catch(err => console.error(err));
-  // insert pos into database
-  
-  res.sendStatus(201);
 });
 
 ///user endpoints//////////
