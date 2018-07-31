@@ -1,18 +1,7 @@
 <h2>💧Add Gripes💧</h2>
 
 <div class="container">
-  <button type="submit" 
-    value="submit" 
-    class="btn btn-primary" 
-    (click)="createGripe(model)">
-      Submit Gripe
-  </button>
-  <button 
-  type="button"
-   class="btn btn-secondary"
-  (click)="goBack()">
-    go back
-  </button>
+  
   <div class="row">
       <form>
           <div class="form-row">
@@ -27,6 +16,7 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
+              <!-- refactor out cross street -->
               <label for="crossStreet">Cross Street</label>
               <input type="text" class="form-control" id="inputCity"  [(ngModel)]="model.crossStreet" name="crossStreet">
             </div>
@@ -37,34 +27,41 @@
           </div>
         
           <div class="form-group col-md-6">
-              <label for="gripe">Gripe</label>
-              <select id="gripe" class="form-control"  [(ngModel)]="model.gripe" name="gripe">
-                <option value="None" selected="selected">Choose the one that Best Describes your Problem...</option>
-                <option value="Barricade is Needed">Barricade or Barrel is needed</option>
-                <option value="Pick up Barricade">Barricade or Barrel was left behind (abandoned)</option>
-                <option value="** ELECTRICAL EMERGENCY - Dispatch immediately **">Electrical Emergency</option>
-                <option value="Fire Hydrant Leak">Fire Hydrant Leak</option>
-                <option value="Fire Hydrant Broken">Fire Hydrant Broken</option>
-                <option value="Fish Kill in Canal">Fish Kill in Canal</option>
-                <option value="Foreign Material in Drainage Canal">Foreign Material in Drainage Canal (i.e. oil, paint, debris, etc.)</option>
-                <option value="Foreign Material in Storm Drain">Foreign Material in Storm Drain (i.e. oil, paint, concrete, etc.)</option>
-                <option value="Meter Box Leak">Meter Box is Leaking</option>
-                <option value="Manhole Cover Missing">Missing Manhole Cover</option>
-                <option value="Meter Box Cover Missing">Missing Meter Box Cover </option>
-                <option value="** ODOR REPORTED - Dispatch immediately **">Odor</option>
-                <option value="Other">Other</option>
-                <option value="** SEWER LEAK - Dispatch immediately **">Sewer Leak</option>
-                <option value="Sidewalk Needs Paving">Sidewalk Needs Paving After Repair</option>
-                <option value="Street Needs Paving">Street Needs Paving After Repair</option>
-                <option value="Water Leak">Water Leak</option>
-                <option value="Water None">Water None</option>
-                <option value="Water Pressure Low">Water Pressure Low</option>
-              </select>
+            <label for="gripe">Gripe</label>
+            <select id="gripe" class="form-control" [(ngModel)]="model.gripe" name="gripe">
+              <option value="None" selected="selected">Choose the one that Best Describes your Problem...</option>
+              <option value="Barricade is Needed">Barricade or Barrel is needed</option>
+              <option value="Pick up Barricade">Barricade or Barrel was left behind (abandoned)</option>
+              <option value="** ELECTRICAL EMERGENCY - Dispatch immediately **">Electrical Emergency</option>
+              <option value="Fire Hydrant Leak">Fire Hydrant Leak</option>
+              <option value="Fire Hydrant Broken">Fire Hydrant Broken</option>
+              <option value="Fish Kill in Canal">Fish Kill in Canal</option>
+              <option value="Foreign Material in Drainage Canal">Foreign Material in Drainage Canal (i.e. oil, paint, debris, etc.)</option>
+              <option value="Foreign Material in Storm Drain">Foreign Material in Storm Drain (i.e. oil, paint, concrete, etc.)</option>
+              <option value="Meter Box Leak">Meter Box is Leaking</option>
+              <option value="Manhole Cover Missing">Missing Manhole Cover</option>
+              <option value="Meter Box Cover Missing">Missing Meter Box Cover </option>
+              <option value="** ODOR REPORTED - Dispatch immediately **">Odor</option>
+              <option value="Other">Other</option>
+              <option value="** SEWER LEAK - Dispatch immediately **">Sewer Leak</option>
+              <option value="Sidewalk Needs Paving">Sidewalk Needs Paving After Repair</option>
+              <option value="Street Needs Paving">Street Needs Paving After Repair</option>
+              <option value="Water Leak">Water Leak</option>
+              <option value="Water None">Water None</option>
+              <option value="Water Pressure Low">Water Pressure Low</option>
+            </select>
           </div>
           <div class="form-group col-md-6">
-              <label for="comment">Additional Comment</label>
-              <input type="text" class="form-control" id="comment" placeholder="Additional comments here">
+            <input type="text" class="form-control" id="comment" [(ngModel)]="model.comment" name="comment">
           </div>
         </form>
+        <div>
+          <button type="submit" value="submit" class="btn btn-primary" (click)="createGripe(model)">
+            Submit Gripe
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="goBack()">
+            go back
+          </button>
+        </div>
   </div>
 </div>

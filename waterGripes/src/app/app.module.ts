@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';//mock server
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { AddGripeComponent } from './add-gripe/add-gripe.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { GripeSearchComponent } from './gripe-search/gripe-search.component';
-import { MessagesComponent } from './messages/messages.component';
 import {
   SocialLoginModule,
   AuthServiceConfig,
@@ -73,7 +72,6 @@ export function getAuthServiceConfigs() {
     AddGripeComponent,
     UserHomeComponent,
     GripeSearchComponent,
-    MessagesComponent
   ],
   bootstrap: [AppComponent]
 })

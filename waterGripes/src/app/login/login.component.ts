@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService, GoogleLoginProvider } from 'angular-6-social-login';
 import { from } from 'rxjs';
-import { flatMap, map, tap } from 'rxjs/operators';
 
 import { GripeService } from '../gripe.service';
 

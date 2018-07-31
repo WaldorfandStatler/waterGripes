@@ -5,8 +5,8 @@
   <div>
     {{gripe.gripe | uppercase }}
   </div>
-  <div>
-    {{gripe.comment}}
+  <div *ngIf="gripe.comment !== 'undefined'">
+    {{gripe.comment}} 
   </div>
   <div>
     On the {{gripe.block_number}} block of {{gripe.street}}
@@ -14,9 +14,7 @@
   <div>
     New Orleans, LA {{gripe.zipcode}}
   </div>
-  <div>
-
-  </div>
+  
   Vote: <span><button (click)="vote(-1)">Resolved</button></span><button (click)="vote(1)">UnResolved</button>
   
 </div>

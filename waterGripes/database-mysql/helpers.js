@@ -29,7 +29,18 @@ const gripeById = (id) => {
   });
 }
 
-const getLocationData = (id)=>{};
+const setLocation = (pos, id)=>{
+  const set = 'UPDATE gripes SET latitude = ?, longitude = ? WHERE id = ?';
+  return new Promise((resolve, reject) => {
+    connection.query(set, [pos.lat, pos.lng, id], (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      console.log(result);
+      return resolve(result);
+    });
+  })
+};
 
 const submitGripe = (gripeInput)=>{
   console.log( ' submit gripe', gripeInput);
@@ -38,8 +49,6 @@ const submitGripe = (gripeInput)=>{
   let street = gripeInput.street;
   let crossStreet = gripeInput.crossStreet;
   let zipcode = gripeInput.inputZip;
-  let latitude = 30.5;
-  let longitude = 90.0;
   let gripe = gripeInput.gripe;
   let comment = gripeInput.comment;
   let votes = gripeInput.votes;
@@ -48,8 +57,8 @@ const submitGripe = (gripeInput)=>{
   sendEmail(gripeInput);
 
   //the query string;
-  let query = `INSERT into gripes (block_Number, street, crossStreet, zipcode, latitude, longitude, gripe, comment, votes,  status) 
-  VALUES ( '${blockNumber}', '${street}', '${crossStreet}', '${zipcode}', '${latitude}', '${longitude}', '${gripe}', '${comment}', 5, 'Unresolved'); `
+  let query = `INSERT into gripes (block_Number, street, crossStreet, zipcode, gripe, comment, votes,  status) 
+  VALUES ( '${blockNumber}', '${street}', '${crossStreet}', '${zipcode}', '${gripe}', '${comment}', 5, 'Unresolved'); `
 
   return new Promise(function (resolve, reject) {
     connection.query(query, function (err, result) {
@@ -141,5 +150,6 @@ module.exports = {
   gripeById,
   checkVotes,
   setStatus,
+  setLocation,
 }
 
