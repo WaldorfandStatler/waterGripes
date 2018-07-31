@@ -1,25 +1,18 @@
-const { SENDGRID_API_KEY } = require('../config.js');
+const { SENDGRID_API_KEY, anyEmail, yourEmail } = require('../config.js');
 
 // using SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 const sgMail = require('@sendgrid/mail');
 
-sgMail.setApiKey(SENDGRID_API_KEY);
+sgMail.setApiKey(SENDGRID_API_KEY);//key and emails in config file.
 
-// const msg = {
-//   to: 'twogrumpyolmen@gmail.com',
-//   from: 'twogrumpyolmen@gmail.com',
-//   subject: 'Sending with SendGrid is Fun',
-//   text: 'and easy to do anywhere, even with Node.js',
-//   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-// };
-
+///send email=> fires off an email to desired recipients
 const sendEmail = (gripe) => {
   console.log('send email', gripe);
 
-  const msg = {
-    to: 'twogrumpyolmen@gmail.com',
-    from: 'twogrumpyolmen@gmail.com',
+  const msg = {//create email body
+    to: anyEmail,
+    from: yourEmail,
     subject: 'New Orleans Water Leak Report',
     html: `${gripe.gripe} at ${gripe.blockNumber} ${gripe.street}, New Orleans, LA ${gripe.inputZip}. 
     Additional comments: ${gripe.comment}. Sent by the two grumpy old men at Water Gripe!`
@@ -27,7 +20,7 @@ const sendEmail = (gripe) => {
   }
 
 
-  sgMail.send(msg)
+  sgMail.send(msg)//send email
   .then( ()=>{ console.log("email sent")})
   .catch( (error)=>{
   console.log('error with email ', error);
